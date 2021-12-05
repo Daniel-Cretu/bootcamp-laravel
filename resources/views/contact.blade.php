@@ -7,9 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    {{-- <button onclick={{ route('sendContact', ['id'=>1]) }}>Send</button> --}}
     <form action="{{ route('sendContact') }}" method="GET">
-    <input type="submit" value="Send" id="send_1">
+        <input type="submit" value="Send" id="send_1">
     </form>
 </body>
 </html>
