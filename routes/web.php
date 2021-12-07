@@ -17,6 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/contact', function () {
-    return view('contact');
-}) -> name('showContact');
+Route::get('/contact', 'App\Http\Controllers\ContactController@showContact')->name('showContact');

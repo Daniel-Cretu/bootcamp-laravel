@@ -18,6 +18,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('', function () {
-    return redirect()->route('showContact');
-}) -> name('sendContact');
+Route::post('/contact', 'App\Http\Controllers\ContactController@sendContact')->name('sendContact');
