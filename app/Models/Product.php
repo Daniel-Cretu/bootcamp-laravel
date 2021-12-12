@@ -24,6 +24,12 @@ class Product extends Model
     public function productWarning() {
         return $this->hasMany(ProductWarning::class);
     }
+    public function orderProduct() {
+        return $this->hasMany(OrderProduct::class);
+    }
+    public function orderProductTopping() {
+        return $this->hasMany(OrderProductTopping::class);
+    }
 
     public $timestamps = false;
 }
