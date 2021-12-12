@@ -10,12 +10,11 @@ class Category extends Model
     use HasFactory;
 
     protected $fillable = [
-        'category_id',
         'name',
     ];
 
     public function product() {
-        return $this->belongsTo(Product::class);
+        return $this->hasOne(Product::class);
     }
 
     public $timestamps = false;
