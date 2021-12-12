@@ -15,7 +15,7 @@ class CreateProductsInfoTable extends Migration
     {
         Schema::create('products_info', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')
+            $table->foreignId('product_id')->unique()
                 ->constrained('products','id')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
