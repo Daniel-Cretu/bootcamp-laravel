@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOrderProductToppingTable extends Migration
+class CreateOrderProductToppingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateOrderProductToppingTable extends Migration
      */
     public function up()
     {
-        Schema::create('order_product_topping', function (Blueprint $table) {
+        Schema::create('order_product_toppings', function (Blueprint $table) {
             $table->foreignId('order_product_id')
-                ->references('id')->on('order_product')
+                ->references('id')->on('order_products')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
             $table->bigInteger('product_id')->unsigned()->nullable(true);
@@ -34,6 +34,6 @@ class CreateOrderProductToppingTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('order_product_topping');
+        Schema::dropIfExists('order_product_toppings');
     }
 }
