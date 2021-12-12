@@ -5,20 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProductInfo extends Model
+class Status extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'product_id',
-        'description',
-        'image_location',
+        'name',
     ];
 
-    public function product(){
-        return $this->hasOne(Product::class);
+    public function product() {
+        return $this->hasMany(Product::class);
     }
 
-    protected $table = 'products_info';
     public $timestamps = false;
 }

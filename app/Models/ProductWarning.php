@@ -14,12 +14,10 @@ class ProductWarning extends Model
         'warning_id',
     ];
 
-    public function product()
-    {
+    public function product(){
         return $this->belongsTo(Product::class);
     }
-    public function warning()
-    {
+    public function warning(){
         return $this->belongsTo(Warning::class);
     }
 
