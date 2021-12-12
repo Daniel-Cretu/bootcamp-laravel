@@ -15,7 +15,7 @@ class AlterProductsTable extends Migration
     {
         Schema::table('products', function (Blueprint $table){
            $table->string('name',40);
-           $table->decimal('price',10,2);
+           $table->decimal('price',10,2)->nullable(true);
         });
     }
 
