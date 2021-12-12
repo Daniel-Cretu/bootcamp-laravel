@@ -19,6 +19,10 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class);
     }
+    public function productInfo()
+    {
+        return $this->hasOne(ProductInfo::class);
+    }
 
     public $timestamps = false;
 }
