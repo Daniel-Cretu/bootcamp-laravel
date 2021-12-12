@@ -15,6 +15,7 @@ class Product extends Model
         'price',
     ];
 
+
     public function category(){
         return $this->belongsTo(Category::class);
     }
@@ -27,7 +28,8 @@ class Product extends Model
     public function orderProduct() {
         return $this->hasMany(OrderProduct::class);
     }
-    public function orderProductTopping() {
+    public function orderProductTopping()
+    {
         return $this->hasMany(OrderProductTopping::class);
     }
 
