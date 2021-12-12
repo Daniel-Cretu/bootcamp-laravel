@@ -15,12 +15,10 @@ class Product extends Model
         'price',
     ];
 
-    public function category()
-    {
+    public function category(){
         return $this->belongsTo(Category::class);
     }
-    public function productInfo()
-    {
+    public function productInfo(){
         return $this->hasOne(ProductInfo::class);
     }
     public function productWarning() {
