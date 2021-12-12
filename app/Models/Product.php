@@ -23,6 +23,9 @@ class Product extends Model
     {
         return $this->hasOne(ProductInfo::class);
     }
+    public function productWarning() {
+        return $this->hasMany(ProductWarning::class);
+    }
 
     public $timestamps = false;
 }
