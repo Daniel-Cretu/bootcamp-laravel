@@ -20,7 +20,7 @@ class CreateOrdersTable extends Migration
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
             $table->foreignId('status_id')
-                ->references('id')->on('status')
+                ->references('id')->on('statuses')
                 ->cascadeOnUpdate()
                 ->restrictOnDelete();
             $table->decimal('price',10,2)->nullable(false);
