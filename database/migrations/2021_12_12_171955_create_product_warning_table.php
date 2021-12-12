@@ -23,6 +23,7 @@ class CreateProductWarningTable extends Migration
                 ->references('id')->on('warnings')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
+            $table->unique(['product_id', 'warning_id']);
         });
     }
 
