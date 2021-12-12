@@ -24,9 +24,6 @@ class CreateOrderProductsTable extends Migration
                 ->cascadeOnUpdate()
                 ->restrictOnDelete();
             $table->unsignedTinyInteger('quantity')->nullable(false);
-            $table->string('phone_number',20);
-            $table->string('address',40);
-            $table->timestamps();
         });
     }
 
