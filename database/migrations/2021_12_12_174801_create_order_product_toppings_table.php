@@ -23,7 +23,7 @@ class CreateOrderProductToppingsTable extends Migration
                 ->references('id')->on('products')
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
-            $table->unsignedTinyInteger('quantity')->nullable(false);
+            $table->unsignedTinyInteger('quantity');
         });
     }
 

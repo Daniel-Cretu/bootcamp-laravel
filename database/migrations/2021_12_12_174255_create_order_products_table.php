@@ -23,7 +23,7 @@ class CreateOrderProductsTable extends Migration
                 ->references('id')->on('products')
                 ->cascadeOnUpdate()
                 ->restrictOnDelete();
-            $table->unsignedTinyInteger('quantity')->nullable(false);
+            $table->unsignedTinyInteger('quantity');
         });
     }
 
