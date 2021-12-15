@@ -67,8 +67,7 @@ return [
     |
     */
 
-//    'timezone' => 'UTC',
-    'timezone' => 'Europe/Chisinau',
+        'timezone' => 'Europe/Chisinau',
 
     /*
     |--------------------------------------------------------------------------

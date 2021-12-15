@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,8 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/contact', 'App\Http\Controllers\ContactController@showContact')->name('showContact');
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/blog', [BlogController::class, 'index'])->name('blog');
