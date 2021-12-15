@@ -23,7 +23,7 @@ class CreateOrdersTable extends Migration
                 ->references('id')->on('statuses')
                 ->cascadeOnUpdate()
                 ->restrictOnDelete();
-            $table->decimal('price',10,2)->nullable(false);
+            $table->decimal('price',10,2);
             $table->string('phone_number',20);
             $table->string('address',40);
             $table->timestamps();

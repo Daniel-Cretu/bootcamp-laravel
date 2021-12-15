@@ -18,7 +18,7 @@ class CreateProductWarningTable extends Migration
                 ->references('id')->on('products')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
-            $table->bigInteger('warning_id')->unsigned()->nullable(false);
+            $table->bigInteger('warning_id')->unsigned();
             $table->foreign('warning_id')
                 ->references('id')->on('warnings')
                 ->cascadeOnUpdate()

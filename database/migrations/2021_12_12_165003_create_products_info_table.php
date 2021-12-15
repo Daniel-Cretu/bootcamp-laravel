@@ -21,8 +21,8 @@ class CreateProductsInfoTable extends Migration
                 ->cascadeOnDelete();
             $table->tinyText('description')->nullable(true);
             $table->tinyText('image_location')->nullable(true);
-            $table->string('name',40)->nullable(false);
-            $table->decimal('price',10,2)->nullable(false);
+            $table->string('name',40);
+            $table->decimal('price',10,2);
         });
     }
 
