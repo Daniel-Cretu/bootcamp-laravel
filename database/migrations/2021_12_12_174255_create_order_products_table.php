@@ -19,7 +19,7 @@ class CreateOrderProductsTable extends Migration
                 ->references('id')->on('orders')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
-            $table->foreignId('product_id')->nullable(true)
+            $table->foreignId('product_id')
                 ->references('id')->on('products')
                 ->cascadeOnUpdate()
                 ->restrictOnDelete();
