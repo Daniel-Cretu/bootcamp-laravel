@@ -7,6 +7,6 @@
         <strong class="d-inline-block m-2 text-warning">Health</strong>
     </div>
     <div class="col-md-4 px-0">
-        <img src="{{$article->image}}" class="card-img" alt="{{$article->title}}" />
+        <img src="app/storage/public/{{$article->image}}" alt="{{ $article->title }}">
     </div>
 </div>
