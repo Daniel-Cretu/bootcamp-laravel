@@ -22,10 +22,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/menu', [MenuController::class, 'index'])->name('menu');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
-Route::get('/article', [ArticleController::class, 'index'])->name('article');
+Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+Route::get('/article/{articleId}', [BlogController::class, 'show'])->name('article');
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
-Route::get('/product', [ProductController::class, 'index'])->name('product');
+Route::get('/product/{productId}', [ProductController::class, 'index'])->name('product');

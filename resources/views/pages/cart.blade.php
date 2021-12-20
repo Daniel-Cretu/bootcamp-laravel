@@ -20,7 +20,7 @@
             </div>
             <hr>
             <div>
-                <button class="col-12 col-xl-6 btn btn-outline-secondary w-100" type="submit" href="{{route('article')}}">Buy</button>
+                <button class="col-12 col-xl-6 btn btn-outline-secondary w-100" type="submit" href="{{route('home')}}">Buy</button>
             </div>
         </div>
     </div>

@@ -52,13 +52,13 @@
 
 
     <div class="row p-0 m-0 d-flex flex-wrap ">
-        @for ($i = 0; $i < 4; $i++)
+        @foreach($products as $product)
             <div class="col-12 col-lg-6 col-xl-3 my-2 p-0 d-flex justify-content-center">
                 <div class="col-12 col-lg-11 ">
-                    @include('../molecules.product')
+                    @include('../molecules.product',['product' => $product])
                 </div>
             </div>
-        @endfor
+        @endforeach
     </div>
     <hr/>
 

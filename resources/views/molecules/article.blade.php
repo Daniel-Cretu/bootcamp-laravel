@@ -16,5 +16,5 @@
             <p class="lead">{{$article->excerpt}}</p>
         </div>
     </div>
-    <a class="col-12 col-xl-6 btn btn-outline-secondary" type="button" href="{{route('article')}}">Continue reading ...</a>
+    <a class="col-12 col-xl-6 btn btn-outline-secondary" type="button" href="{{route('article',['articleId' => $article->id])}}">Continue reading ...</a>
 </div>

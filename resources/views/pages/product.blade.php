@@ -2,10 +2,11 @@
 @section('content')
     <div class="mb-4 bg-light rounded-3">
         <div class="container-fluid">
-            <h1 class="m-4">Product</h1>
+            <h1 class="m-4"></h1>
+{{--            <h6>{{$product[0]}}</h6>--}}
             <div class="row">
                 <div class="col-12 col-lg-6">
-                    @include('../atoms.product-img')
+{{--                    @include('../atoms.product-img',['productImageLocation' => $product->image_location])--}}
                 </div>
                 <div class="col-12 col-lg-6">
                     <button class="btn my-3 m-lg-0 col-12 btn-outline-secondary btn-lg" type="button">Add</button>

@@ -47,9 +47,14 @@
         </div>
     </form>
     <h3 class="m-4">Comment section</h3>
-    @include('../molecules.comment')
-    @include('../molecules.comment')
-    @include('../molecules.comment')
-    @include('../molecules.comment')
-    @include('../molecules.comment')
+{{--    @include('../molecules.comment')--}}
+{{--    @include('../molecules.comment')--}}
+{{--    @include('../molecules.comment')--}}
+{{--    @include('../molecules.comment')--}}
+{{--    @include('../molecules.comment')--}}
+    @foreach($articleComments as $articleComment)
+        @if($articleComment->article_id == $articleId)
+            @include('../molecules.comment', ['articleComment' => $articleComment])
+        @endif
+    @endforeach
 @endsection
