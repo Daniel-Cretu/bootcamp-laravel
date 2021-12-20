@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Warning extends Model
+class Warning
 {
     use HasFactory;
 
@@ -13,10 +13,6 @@ class Warning extends Model
         'name',
         'image_location',
     ];
-
-    public function productWarning() {
-        return $this->hasOne(ProductWarning::class);
-    }
 
     public $timestamps = false;
 }

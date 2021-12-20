@@ -13,8 +13,8 @@ class Status extends Model
         'name',
     ];
 
-    public function product() {
-        return $this->hasMany(Product::class);
+    public function orders() {
+        return $this->hasMany(Order::class);
     }
 
     public $timestamps = false;
