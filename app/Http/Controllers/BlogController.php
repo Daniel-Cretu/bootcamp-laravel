@@ -9,6 +9,7 @@ class BlogController extends Controller
 {
     public function index() {
         $articles = Article::orderby('created_at', 'DESC')->get()->all();
-        return view('blog.blog', ['articles' => $articles]);
+//        return view('pages.blog', ['articles' => $articles]);
+        return view('pages.blog', ['articles' => $articles]);
     }
 }
