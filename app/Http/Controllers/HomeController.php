@@ -11,6 +11,5 @@ class HomeController extends Controller
     {
         $articles = Article::orderby('created_at', 'DESC')->limit(3)->get()->all();
         return view('pages.home', ['articles' => $articles]);
-//        return view('pages.home');
     }
 }
