@@ -67,7 +67,10 @@ return [
     |
     */
 
+
+
         'timezone' => 'Europe/Chisinau',
+
 
     /*
     |--------------------------------------------------------------------------
@@ -92,6 +95,7 @@ return [
     | the language folders that are provided through your application.
     |
     */
+
 
     'fallback_locale' => 'en',
 
