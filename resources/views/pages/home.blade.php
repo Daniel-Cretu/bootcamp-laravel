@@ -69,13 +69,22 @@
 
 
     <div class="row mx-0 my-2">
-        @for ($i = 0; $i < 4; $i++)
+{{--        @for ($i = 0; $i < 4; $i++)--}}
+{{--            <div class="col-md-auto py-2 px-0 px-xl-2">--}}
+{{--                <div class="col-12">--}}
+{{--                    @include('../molecules.article')--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        @endfor--}}
+        @foreach($articles as $article)
+            {{--            @for ($i = 0; $i < 10; $i++)--}}
             <div class="col-md-auto py-2 px-0 px-xl-2">
                 <div class="col-12">
-                    @include('../molecules.article')
+                    @include('../molecules.article', ['article' => $article])
                 </div>
             </div>
-        @endfor
+            {{--            @endfor--}}
+        @endforeach
     </div>
     <hr/>
 @endsection
