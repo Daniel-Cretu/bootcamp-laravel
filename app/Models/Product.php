@@ -21,13 +21,14 @@ class Product extends Model
     public function productInfo(){
         return $this->hasOne(ProductInfo::class);
     }
-    public function productWarning() {
-        return $this->hasMany(ProductWarning::class);
+    public function warnings() {
+        return $this->belongsToMany(Warning::class);
     }
-    public function orderProduct() {
+    public function orderProducts() {
         return $this->hasMany(OrderProduct::class);
     }
-    public function orderProductTopping() {
+    public function orderProductToppings()
+    {
         return $this->hasMany(OrderProductTopping::class);
     }
 
