@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProductWarning extends Model
+class ProductWarning
 {
     use HasFactory;
 
@@ -13,13 +13,6 @@ class ProductWarning extends Model
         'product_id',
         'warning_id',
     ];
-
-    public function product(){
-        return $this->belongsTo(Product::class);
-    }
-    public function warning(){
-        return $this->belongsTo(Warning::class);
-    }
 
     protected $table = 'product_warning';
     public $timestamps = false;

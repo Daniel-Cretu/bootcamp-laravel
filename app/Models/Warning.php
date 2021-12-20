@@ -14,8 +14,8 @@ class Warning extends Model
         'image_location',
     ];
 
-    public function productWarning() {
-        return $this->hasOne(ProductWarning::class);
+    public function products() {
+        return $this->belongsToMany(Product::class);
     }
 
     public $timestamps = false;
