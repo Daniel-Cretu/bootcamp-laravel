@@ -26,6 +26,6 @@ Route::get('/menu', [MenuController::class, 'index'])->name('menu');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
-Route::get('/article/{articleId}', [BlogController::class, 'show'])->name('article');
+Route::get('/blog/article/{articleId}', [ArticleController::class, 'show'])->name('article');
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::get('/product/{productId}', [ProductController::class, 'index'])->name('product');
