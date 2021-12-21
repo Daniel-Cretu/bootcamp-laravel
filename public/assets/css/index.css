@@ -1,0 +1,34 @@
+/* CAROUSEL START */
+.carousel-item img {
+  height: 400px;
+  object-fit: cover;
+}
+
+.carousel-caption {
+  text-shadow: #000 0px 0px 3px;
+}
+
+.carousel-inner {
+  border-radius: 5px;
+}
+
+/* CAROUSEL END */
+/* CARD START */
+
+.card {
+  width: 100%;
+  height: 200px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card-img-overlay {
+  text-shadow: #000 0px 0px 3px;
+}
+
+.card-img {
+  height: 100%;
+  object-fit: cover;
+}
+
+/* CARD END */

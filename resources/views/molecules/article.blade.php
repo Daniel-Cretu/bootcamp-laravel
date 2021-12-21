@@ -11,10 +11,10 @@
         <h2>{{$article->title}}</h2>
         <div>
             <p class="float-start m-4 ms-0 w-25">
-                @include('../atoms.product-img', ['image' => $article->image])
+                @include('../atoms.article-img', ['image' => $article->image])
             </p>
             <p class="lead">{{$article->excerpt}}</p>
         </div>
     </div>
-    <a class="col-12 col-xl-6 btn btn-outline-secondary" type="button" href="{{route('article')}}">Continue reading ...</a>
+    <a class="col-12 col-xl-6 btn btn-outline-secondary" type="button" href="{{route('article',['articleId' => $article->id])}}">Continue reading ...</a>
 </div>

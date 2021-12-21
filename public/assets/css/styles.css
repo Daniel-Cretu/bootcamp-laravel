@@ -1,4 +1,3 @@
-
 * {
   font-size: 24px;
   margin: 0;
@@ -90,8 +89,6 @@ header {
 
 /* HEADER END */
 /* FOOTER START */
-
-
 /* FOOTER END */
 
 .layered-box {
@@ -103,4 +100,3 @@ header {
         0 16px 16px hsl(0deg 0% 0% / 0.075)
     ;
 }
-

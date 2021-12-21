@@ -1,13 +1,20 @@
 @extends('layout')
 @section('content')
         <div class="row p-0 m-0 d-flex flex-wrap ">
-            @for ($i = 0; $i < 4; $i++)
+{{--            @for ($i = 0; $i < 4; $i++)--}}
+{{--                <div class="col-12 col-lg-6 col-xl-4 my-2 p-0 d-flex justify-content-center">--}}
+{{--                    <div class="col-12 col-lg-11 ">--}}
+{{--                        @include('../molecules.product')--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            @endfor--}}
+            @foreach($products as $product)
                 <div class="col-12 col-lg-6 col-xl-4 my-2 p-0 d-flex justify-content-center">
                     <div class="col-12 col-lg-11 ">
-                        @include('../molecules.product')
+                        @include('../molecules.product',['product' => $product])
                     </div>
                 </div>
-            @endfor
+            @endforeach
                 <div class="col-12 col-lg-6 col-xl-4 my-2 p-0 d-flex justify-content-center">
                     <div class="col-12 col-lg-11 ">
                         <div class="product h-100 bg-light border rounded-3">
