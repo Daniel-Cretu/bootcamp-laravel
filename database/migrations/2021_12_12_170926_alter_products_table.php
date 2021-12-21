@@ -16,6 +16,7 @@ class AlterProductsTable extends Migration
         Schema::table('products', function (Blueprint $table){
            $table->string('name',400);
            $table->decimal('price',10,2)->nullable(true);
+           $table->boolean('flag')->default(true);
         });
     }
 

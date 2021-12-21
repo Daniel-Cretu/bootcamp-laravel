@@ -18,11 +18,11 @@ class CreateOrderProductToppingsTable extends Migration
                 ->references('id')->on('order_products')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
-            $table->bigInteger('product_id')->unsigned()->nullable(true);
+            $table->bigInteger('product_id')->unsigned();
             $table->foreign('product_id')
                 ->references('id')->on('products')
                 ->cascadeOnUpdate()
-                ->nullOnDelete();
+                ->restrictOnDelete();
             $table->unsignedTinyInteger('quantity');
         });
     }
