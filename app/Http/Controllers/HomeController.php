@@ -12,6 +12,12 @@ class HomeController extends Controller
 {
     public function index()
     {
+//        $article = Article::find(92);
+////        dd($article_blog_tags);
+//        foreach ($article->blogTags as $blogTag){
+//            dd($blogTag);
+//        }
+
         // Articles with title, category name, and others(using on main page) for this month
         $articles = Article::select(['articles.id', 'articles.title', 'articles.published_at', 'articles.image', 'articles.excerpt', 'blog_categories.name'])
             ->where('articles.published_at', '>=', Carbon::today()->startOfMonth())
@@ -25,7 +31,7 @@ class HomeController extends Controller
         $articlesWithoutTags = Article::select(['id', 'title', 'published_at', 'image', 'excerpt'])
             ->where('published_at', '>=', Carbon::today()->startOfMonth())
             ->where('published_at', '<=', Carbon::today()->endOfMonth())
-                ->doesntHave('blogTags')
+            ->doesntHave('blogTags')
             ->orderby('published_at', 'DESC')
             ->orderby('title', 'ASC')
             ->get();
@@ -52,6 +58,42 @@ class HomeController extends Controller
             ->where('users.email_verified_at', '>=', Carbon::today()->subMonth()->startOfMonth())
             ->where('users.email_verified_at', '<=', Carbon::today()->subMonth()->endOfMonth())
             ->get();
+
+        // 4. Articles without comments
+        $articlesWithoutComments = Article::select(['id', 'title', 'published_at', 'image', 'excerpt'])
+            ->where('published_at', '>=', Carbon::today()->startOfMonth())
+            ->where('published_at', '<=', Carbon::today()->endOfMonth())
+            ->doesntHave('comments')
+            ->orderby('published_at', 'DESC')
+            ->orderby('title', 'ASC')
+            ->get();
+
+        // 5. Get most five commented articles
+        $articlesTop5ByComments = Article::select(['articles.id', 'articles.title', 'articles.image', 'articles.excerpt', DB::raw('COUNT(articles.id) AS nr_of_comments')])
+            ->where('articles.published_at', '>=', Carbon::today()->startOfMonth())
+            ->where('articles.published_at', '<=', Carbon::today()->endOfMonth())
+            ->join('comments', 'comments.article_id', '=', 'articles.id')
+            ->groupBy('articles.id', 'articles.title', 'articles.image', 'articles.excerpt')
+            ->orderby('nr_of_comments', 'DESC')
+            ->orderby('articles.published_at', 'DESC')
+            ->orderby('articles.title', 'ASC')
+            ->limit(5)
+            ->get();
+
+        // 6. Get articles about COVID
+        $articlesTop5ByComments = Article::select(['id', 'title', 'image', 'excerpt'])
+            ->where('published_at', '>=', Carbon::today()->startOfMonth())
+            ->where('published_at', '<=', Carbon::today()->endOfMonth())
+            ->whereRaw('LOWER(title) LIKE "%covid%"')
+            ->orWhereRaw('LOWER(excerpt) LIKE "%covid%"')
+            ->orWhereRaw('LOWER(description) LIKE "%covid%"')
+            ->orderby('published_at', 'DESC')
+            ->orderby('title', 'ASC')
+            ->limit(5)
+            ->toSql();
+
+//        dd($articlesTop5ByComments);
+
 
         $products = Product::orderby('name')->limit(4)->get()->all();
         return view('pages.home', ['articles' => $articles, 'products' => $products]);
