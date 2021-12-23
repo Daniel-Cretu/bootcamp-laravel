@@ -72,7 +72,6 @@
         @foreach($articles as $article)
             <div class="col-md-auto py-2 px-0 px-xl-2">
                 <div class="col-12">
-                    <?php dump($article); ?>
                     @include('../molecules.article', ['article' => $article])
                 </div>
             </div>
