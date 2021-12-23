@@ -19,7 +19,7 @@
                 <div class="h-100 p-5 bg-light rounded-3">
                     <h2>We care</h2>
                     <p>We care about you. Let us know about your experience!</p>
-                    <a class="btn btn-outline-secondary" type="button" href="{{route('contactlayered-box')}}">Contact us</a>
+                    <a class="btn btn-outline-secondary" type="button" href="{{route('contact')}}">Contact us</a>
                 </div>
             </div>
         </div>
