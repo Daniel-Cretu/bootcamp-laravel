@@ -76,7 +76,6 @@ class HomeController extends Controller
             ->orWhereRaw('LOWER(description) LIKE "%covid%"')
             ->orderby('published_at', 'DESC')
             ->orderby('title', 'ASC')
-            ->limit(5)
             ->get();
 
         // 7. Get author with the most articles
