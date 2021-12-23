@@ -12,11 +12,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-//        $article = Article::find(92);
-////        dd($article_blog_tags);
-//        foreach ($article->blogTags as $blogTag){
-//            dd($blogTag);
-//        }
 
         // Articles with title, category name, and others(using on main page) for this month
         $articles = Article::select(['articles.id', 'articles.title', 'articles.published_at', 'articles.image', 'articles.excerpt', 'blog_categories.name'])
@@ -29,8 +24,6 @@ class HomeController extends Controller
 
         // Articles without tags
         $articlesWithoutTags = Article::select(['id', 'title', 'published_at', 'image', 'excerpt'])
-            ->where('published_at', '>=', Carbon::today()->startOfMonth())
-            ->where('published_at', '<=', Carbon::today()->endOfMonth())
             ->doesntHave('blogTags')
             ->orderby('published_at', 'DESC')
             ->orderby('title', 'ASC')
@@ -61,8 +54,6 @@ class HomeController extends Controller
 
         // 4. Articles without comments
         $articlesWithoutComments = Article::select(['id', 'title', 'published_at', 'image', 'excerpt'])
-            ->where('published_at', '>=', Carbon::today()->startOfMonth())
-            ->where('published_at', '<=', Carbon::today()->endOfMonth())
             ->doesntHave('comments')
             ->orderby('published_at', 'DESC')
             ->orderby('title', 'ASC')
@@ -70,8 +61,6 @@ class HomeController extends Controller
 
         // 5. Get most five commented articles
         $articlesTop5ByComments = Article::select(['articles.id', 'articles.title', 'articles.image', 'articles.excerpt', DB::raw('COUNT(articles.id) AS nr_of_comments')])
-            ->where('articles.published_at', '>=', Carbon::today()->startOfMonth())
-            ->where('articles.published_at', '<=', Carbon::today()->endOfMonth())
             ->join('comments', 'comments.article_id', '=', 'articles.id')
             ->groupBy('articles.id', 'articles.title', 'articles.image', 'articles.excerpt')
             ->orderby('nr_of_comments', 'DESC')
@@ -82,17 +71,21 @@ class HomeController extends Controller
 
         // 6. Get articles about COVID
         $articlesTop5ByComments = Article::select(['id', 'title', 'image', 'excerpt'])
-            ->where('published_at', '>=', Carbon::today()->startOfMonth())
-            ->where('published_at', '<=', Carbon::today()->endOfMonth())
             ->whereRaw('LOWER(title) LIKE "%covid%"')
             ->orWhereRaw('LOWER(excerpt) LIKE "%covid%"')
             ->orWhereRaw('LOWER(description) LIKE "%covid%"')
             ->orderby('published_at', 'DESC')
             ->orderby('title', 'ASC')
             ->limit(5)
-            ->toSql();
+            ->get();
 
-//        dd($articlesTop5ByComments);
+        // 7. Get author with the most articles
+        $authorWithMostArticles = Article::select(['users.name', DB::raw('COUNT(*) as author_articles')])
+            ->join('users', 'users.id', '=', 'articles.author_id')
+            ->groupBy('articles.author_id', 'users.name')
+            ->orderby('author_articles', 'DESC')
+            ->limit(1)
+            ->get();
 
 
         $products = Product::orderby('name')->limit(4)->get()->all();
