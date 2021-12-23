@@ -10,6 +10,31 @@
             <a class="p-3 link-secondary" href="#">Travel</a>
         </nav>
     </div>
+    <div class="row">
+        {{ $articles->links() }}
+    </div>
+    <div class="row mx-4">
+        <form method="GET" action="/blog" class="row row-cols-3 p-0 m-0">
+            <div class="col">
+                <select class="form-select" name="category">
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}"
+                                @if($filter['category'] === $category->id) selected @endif
+                        >{{ $category->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col">
+                <select class="form-select" name="sort">
+                    <option value="DESC" @if($filter['sort'] === 'DESC') selected @endif>DESC</option>
+                    <option value="ASC" @if($filter['sort'] === 'ASC') selected @endif>ASC</option>
+                </select>
+            </div>
+            <div class="col">
+                <button class="btn btn-primary">Apply sort</button>
+            </div>
+        </form>
+    </div>
 {{--    @for ($i = 0; $i < 10; $i++)--}}
 {{--        <div class="col-md-auto py-2 px-0 px-xl-2">--}}
 {{--            <div class="col-12">--}}
@@ -27,4 +52,7 @@
                 </div>
 {{--            @endfor--}}
     @endforeach
+    <div class="row">
+        {{ $articles->links() }}
+    </div>
 @endsection
