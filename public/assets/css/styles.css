@@ -39,8 +39,8 @@ header {
     display: block;
     width: 100%;
     filter: blur(0px) grayscale(5%);
-
 }
+
 .product:hover img {
     filter: blur(2px);
 }
@@ -84,6 +84,14 @@ header {
 
 .topping-add-rm {
     width: 70px;
+}
+
+.article img {
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    width: 100%;
+    filter: blur(0px) grayscale(5%);
 }
 
 
