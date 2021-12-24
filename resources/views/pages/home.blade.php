@@ -1,5 +1,23 @@
 @extends('layout')
 @section('content')
+    <div class="p-1 p-lg-5 mb-1 mb-lg-4 bg-light rounded-3">
+        <div class="container-fluid py-1">
+            <div class="fs-4 row">
+                <div class="col-12 col-lg-3">
+                    <img class="img-fluid" src="{{asset('assets/img/logo.png')}}" alt="Pizza Slice Logo">
+                </div>
+                <div class="col-12 col-lg-9 m-auto">
+                    <h1 class="display-1 fst-italic text-center">Welcome</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
     <div id="carouselExampleCaptions" class="carousel slide py-2 " data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -50,7 +68,14 @@
 
 
 
-
+    <div class="row align-items-md-stretch">
+        <div class="col-12 col-lg-6">
+            <div class="h-100 p-5 bg-light rounded-3">
+                <h2 class="display-4 fst-italic">Pizza Slice Top 4</h2>
+                <p class="fst-italic">Most ordered products this month</p>
+            </div>
+        </div>
+    </div>
     <div class="row p-0 m-0 d-flex flex-wrap ">
         @foreach($products as $product)
             <div class="col-12 col-lg-6 col-xl-3 my-2 p-0 d-flex justify-content-center">
@@ -64,13 +89,25 @@
 
 
 
-
+    <div class="row align-items-md-stretch">
+        <div class="col-12 col-lg-6">
+            <div class="h-100 p-5 bg-light rounded-3">
+                <h2 class="display-3 fst-italic">Pizza Slice BLog</h2>
+                <p class="fst-italic">Read about our latest and most relevant news!</p>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6">
+            <div class="h-100 p-5 bg-light rounded-3">
+                <img src="{{asset('./assets/img/cook.png')}}" class="d-block w-100 rounded-3" alt="...">
+            </div>
+        </div>
+    </div>
 
 
 
     <div class="row mx-0 my-2">
         @foreach($articles as $article)
-            <div class="col-md-auto py-2 px-0 px-xl-2">
+            <div class="col-12 py-2 px-0 px-xl-2">
                 <div class="col-12">
                     @include('../molecules.article', ['article' => $article])
                 </div>
