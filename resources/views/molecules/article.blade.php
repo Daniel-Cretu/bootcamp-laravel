@@ -8,7 +8,7 @@
         <a class="p-2 link-secondary col-auto" href="#">Travel</a>
     </div>
     <div class="row">
-        <h2>{{$article->title}}</h2>
+        <h2 class="fst-italic">{{$article->title}}</h2>
         <div>
             <p class="float-start m-4 ms-0 w-25">
                 @include('../atoms.article-img', ['image' => $article->image])
