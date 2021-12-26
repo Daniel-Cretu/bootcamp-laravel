@@ -4,7 +4,7 @@
         <div class="container-fluid py-1">
             <div class="fs-4 row">
                 <div class="col-12 col-lg-3">
-                    <img class="img-fluid" src="{{asset('assets/img/logo.png')}}" alt="Pizza Slice Logo">
+                    <img id="img-home-logo" class="img-fluid" src="{{asset('assets/img/logo.png')}}" alt="Pizza Slice Logo">
                 </div>
                 <div class="col-12 col-lg-9 m-auto">
                     <h1 class="display-1 fst-italic text-center">Welcome</h1>
