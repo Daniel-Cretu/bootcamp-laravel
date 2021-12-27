@@ -1,10 +1,10 @@
-<header class="bg-light  layered-box">
+<header class="bg-light layered-box">
     <div class="container-xxl p-0 px-sm-1">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <a href="/" class="d-none d-lg-flex align-items-center px-3 my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
                 <img class="header--logo" src="{{asset('assets/img/logo.png')}}" alt="Pizza Slice Logo">
             </a>
-            <ul class="row nav col-12 col-lg-6 my-2 justify-content-center text-small">
+            <ul class="row nav col-12 col-lg-6 m-0 p-0 justify-content-center text-small">
                 <li class="col-6 col-sm-3 text-center p-0 px-sm-1">
                     <a href="{{route('home')}}" class="nav-link text-dark">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-house d-block mx-auto mb-1" viewBox="0 0 16 16">
