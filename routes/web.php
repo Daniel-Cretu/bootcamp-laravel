@@ -5,6 +5,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MenuController;
@@ -33,3 +34,5 @@ Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/blog/article/{articleId}', [ArticleController::class, 'show'])->name('article');
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::get('/product/{productId}', [ProductController::class, 'index'])->name('product');
+
+Route::get('/contacts', [ContactUsController::class, 'view'])->name('contactUs');
