@@ -9,10 +9,10 @@
             <a class="p-2 link-secondary col-auto" href="#">Style</a>
             <a class="p-2 link-secondary col-auto" href="#">Travel</a>
         </div>
-        <h2>{{$article->title}}</h2>
-        <h3>{{$article->user->name}}</h3>
+        <h2 class="">{{$article->title}}</h2>
+        <h6 class="fst-italic">{{$article->user->name}}</h6>
         <div class="col-12 px-0">
-            <p class="m-4 w-50">
+            <p class="p-0 img-fluid">
                 @include('../atoms.article-img', ['image' => $article->image])
             </p>
             <p class="lead my-3">{{$article->description}}</p>
@@ -35,6 +35,7 @@
                 <textarea class="form-control" placeholder="Leave a comment here" id="formCommentComment"></textarea>
                 <label for="formCommentComment">Comment</label>
             </div>
+            <button class="btn btn-outline-secondary" type="submit">Comment</button>
         </div>
     </form>
     <h3 class="m-4">Comment section {{$article->comments()->count()}}</h3>
@@ -43,9 +44,12 @@
 {{--    @include('../molecules.comment')--}}
 {{--    @include('../molecules.comment')--}}
 {{--    @include('../molecules.comment')--}}
-    @foreach($article->comments as $comment)
+    @foreach($articleComments as $comment)
 {{--        @if($articleComment->article_id == $article->id)--}}
             @include('../molecules.comment', ['comment' => $comment])
 {{--        @endif--}}
     @endforeach
+    <div class="row m-0 p-0">
+        {{ $articleComments->links() }}
+    </div>
 @endsection

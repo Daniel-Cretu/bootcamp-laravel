@@ -10,12 +10,9 @@
             <a class="p-3 link-secondary" href="#">Travel</a>
         </nav>
     </div>
-    <div class="row">
-        {{ $articles->links() }}
-    </div>
     <div class="row mx-4">
-        <form method="GET" action="/blog" class="row row-cols-3 p-0 m-0">
-            <div class="col">
+        <form method="GET" action="/blog" class="row p-0 m-0">
+            <div class="col-12">
                 <select class="form-select" name="category">
                     @foreach($categories as $category)
                         <option value="{{ $category->id }}"
@@ -24,35 +21,43 @@
                     @endforeach
                 </select>
             </div>
-            <div class="col">
+            <div class="col-6">
                 <select class="form-select" name="sort">
                     <option value="DESC" @if($filter['sort'] === 'DESC') selected @endif>DESC</option>
                     <option value="ASC" @if($filter['sort'] === 'ASC') selected @endif>ASC</option>
                 </select>
             </div>
-            <div class="col">
+            <div class="col-6">
+                <select class="form-select" name="author">
+{{--                    <option value="" selected >Select author</option>--}}
+                    @foreach($authors as $author)
+                        <option value="{{ $author->id }}"
+                                @if($filter['author'] === $author->id) selected @endif
+                        >{{ $author->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-6">
+                <input class="form-check-input" type="checkbox" value="1" name="hasComments" id="hasComments"
+                       @if($filter['hasComments'] === 1) checked @endif
+                >
+                <label class="form-check-label" for="hasComments">
+                    Has comments
+                </label>
+            </div>
+            <div class="col-6 text-end">
                 <button class="btn btn-primary">Apply sort</button>
             </div>
         </form>
     </div>
-{{--    @for ($i = 0; $i < 10; $i++)--}}
-{{--        <div class="col-md-auto py-2 px-0 px-xl-2">--}}
-{{--            <div class="col-12">--}}
-{{--                @include('../molecules.article')--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    @endfor--}}
-
     @foreach($articles as $article)
-{{--            @for ($i = 0; $i < 10; $i++)--}}
                 <div class="col-md-auto py-2 px-0 px-xl-2">
                     <div class="col-12">
                         @include('../molecules.article', ['article' => $article])
                     </div>
                 </div>
-{{--            @endfor--}}
     @endforeach
-    <div class="row">
+    <div class="row m-0 p-0">
         {{ $articles->links() }}
     </div>
 @endsection
