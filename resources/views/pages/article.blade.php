@@ -38,14 +38,7 @@
         </div>
     </form>
     <h3 class="m-4">Comment section {{$article->comments()->count()}}</h3>
-{{--    @include('../molecules.comment')--}}
-{{--    @include('../molecules.comment')--}}
-{{--    @include('../molecules.comment')--}}
-{{--    @include('../molecules.comment')--}}
-{{--    @include('../molecules.comment')--}}
     @foreach($article->comments as $comment)
-{{--        @if($articleComment->article_id == $article->id)--}}
             @include('../molecules.comment', ['comment' => $comment])
-{{--        @endif--}}
     @endforeach
 @endsection

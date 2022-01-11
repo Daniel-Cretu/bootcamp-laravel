@@ -14,7 +14,7 @@ class BlogController extends Controller
         $sort = $request['sort'] ?? 'ASC';
 
         $categories = BlogCategory::select('id', 'name')->get();
-        $category = $request['category'] ?? $categories->first();
+        $category = $request['category'] ?? $categories->first()->id;
 
 
         // with

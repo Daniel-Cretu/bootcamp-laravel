@@ -10,7 +10,7 @@
             <a class="p-3 link-secondary" href="#">Travel</a>
         </nav>
     </div>
-    <div class="row">
+    <div class="row m-0 p-0">
         {{ $articles->links() }}
     </div>
     <div class="row mx-4">
@@ -52,7 +52,7 @@
                 </div>
 {{--            @endfor--}}
     @endforeach
-    <div class="row">
+    <div class="row m-0 p-0">
         {{ $articles->links() }}
     </div>
 @endsection
