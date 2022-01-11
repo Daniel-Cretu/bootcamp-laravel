@@ -1,22 +1,5 @@
 @extends('layout')
 @section('content')
-{{--    <div class="p-1 p-lg-5 mb-1 mb-lg-4 bg-light rounded-3">--}}
-{{--        <div class="container-fluid py-1">--}}
-{{--            <div class="fs-4 row">--}}
-{{--                <div class="col-12 col-lg-3">--}}
-{{--                    <img class="img-fluid" src="{{asset('assets/img/logo.png')}}" alt="Pizza Slice Logo">--}}
-{{--                </div>--}}
-{{--                <div class="col-12 col-lg-9 m-auto">--}}
-{{--                    <h1 class="display-1 fst-italic text-center">Welcome</h1>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-
-
-
-
-
 
     <div id="carouselExampleCaptions" class="carousel slide py-2 p-1" data-bs-ride="carousel">
         <div class="carousel-indicators">
