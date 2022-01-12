@@ -36,3 +36,4 @@ Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::get('/product/{productId}', [ProductController::class, 'index'])->name('product');
 
 Route::get('/contacts', [ContactUsController::class, 'view'])->name('contactUs');
+Route::post('/contactUs', [ContactUsController::class, 'send'])->name('contactUs.send');

@@ -1,15 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
-use App\Http\Controllers\RedirectResponse;
+
+use App\Http\Requests\ContactUsRequest;
+use Illuminate\Http\RedirectResponse;
+
 class ContactUsController extends Controller
 {
     public function view(){
         return view('contacts.contactUs');
     }
-    public function send(): RedirectResponse
+    public function send(ContactUsRequest $request): RedirectResponse
     {
+        dd($request->all());
         return redirect()->route('contactUs');
     }
 }
