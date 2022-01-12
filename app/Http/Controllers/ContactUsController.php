@@ -12,7 +12,9 @@ class ContactUsController extends Controller
     }
     public function send(ContactUsRequest $request): RedirectResponse
     {
-        dd($request->all());
-        return redirect()->route('contactUs');
+        $data = $request->validated();
+        \Log::debug('test', $data);
+
+        return redirect()->route('contactUs')->withInput($data);
     }
 }
