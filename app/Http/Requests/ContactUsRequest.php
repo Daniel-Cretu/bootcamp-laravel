@@ -15,7 +15,11 @@ class ContactUsRequest extends FormRequest
         return [
             'email' => ['string', 'email', 'required'],
             'name' => ['min:2', 'required', 'string'],
-            'department' => ['array', Rule::in(['administration', 'accounting', 'tehnicalDepartment', 'logistic']),],
+            'department' => [
+                'required',
+                'string',
+                Rule::in(['administration', 'accounting', 'tehnicalDepartment', 'logistic']),
+            ],
             'districts' => ['required', 'array', 'min:1', 'in:chishinau,orhei,straseni'],
             'message' => ['required', 'string', 'min:10'],
             'readTerms' => ['required'],
