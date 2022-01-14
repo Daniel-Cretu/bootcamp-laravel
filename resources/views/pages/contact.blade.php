@@ -17,6 +17,15 @@
             </div>
         @endif
         <form action="{{ route('contact.send') }}" method="POST"  name="contact-form">
+            <div class="">
+                <label for="inputSubject">Subject</label>
+                <select id="inputSubject" class="form-select" name="subject">
+                    <option value="">Select subject</option>
+                    <option @if(old('subject') === 'food') selected @endif value="food" >Food</option>
+                    <option @if(old('subject') === 'service') selected @endif  value="service" >Service</option>
+                    <option @if(old('subject') === 'technical') selected @endif  value="technical" >Technical</option>
+                </select>
+            </div>
             <div class="row">
                 <div class="mb-3 col-12 col-md-6">
                     <label for="email" class="form-label">Email address</label>
