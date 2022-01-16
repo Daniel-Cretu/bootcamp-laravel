@@ -39,24 +39,6 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-    <div class="row m-0 p-0 align-items-md-stretch sticky-top">
-{{--        <div class="col-12 p-0">--}}
-            <div class="col-12 m-0 p-0 h-100 py-1 bg-light rounded-3">
-                <span class="fst-italic">Client's Choice</span>
-            </div>
-{{--        </div>--}}
-    </div>
     <div class="row p-0 m-0 d-flex flex-wrap ">
         @foreach($products as $product)
             <div class="col-12 col-lg-6 col-xl-3 my-1 p-2 p-lg-1 d-flex justify-content-center">
@@ -66,9 +48,6 @@
             </div>
         @endforeach
     </div>
-
-
-
     <div class="row align-items-md-stretch m-0 p-0">
         <div class="col-12 col-lg-6">
             <div class="h-100 p-0 p-lg-5 bg-light rounded-3">
@@ -82,8 +61,6 @@
             </div>
         </div>
     </div>
-
-
     <div class="row mx-0 my-2">
         @foreach($articles as $article)
             <div class="col-12 py-2 px-0 px-xl-2">
