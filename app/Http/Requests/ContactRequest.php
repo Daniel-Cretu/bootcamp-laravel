@@ -4,7 +4,7 @@ namespace  App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class ContactUsRequest extends FormRequest
+class ContactRequest extends FormRequest
 {
     public function authorize():bool
     {
@@ -15,13 +15,12 @@ class ContactUsRequest extends FormRequest
         return [
             'email' => ['string', 'email', 'required'],
             'name' => ['min:2', 'required', 'string'],
-            'department' => [
+            'message' => ['required', 'string', 'min:10'],
+            'subject' => [
                 'required',
                 'string',
-                Rule::in(['administration', 'accounting', 'tehnicalDepartment', 'logistic']),
+                Rule::in(['food', 'service', 'technical']),
             ],
-            'districts' => ['required', 'array', 'min:1', 'in:chishinau,orhei,straseni'],
-            'message' => ['required', 'string', 'min:10'],
             'readTerms' => ['required'],
         ];
     }
