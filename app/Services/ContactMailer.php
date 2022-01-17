@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Services\Mail;
+namespace App\Services;
 
 use Illuminate\Mail\Mailer;
 use Illuminate\Mail\Message;
 use Psr\Log\LoggerInterface;
 
-class ContactService
+class ContactMailer
 {
     private Mailer $infrastructureMailer;
     private LoggerInterface $logger;

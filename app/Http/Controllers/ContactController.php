@@ -3,16 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactRequest;
-use App\Services\Mail\ContactService;
+use App\Services\ContactMailer;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Mail\Message;
 
 class ContactController extends Controller
 {
     public function view(){
         return view('pages.contact');
     }
-    public function send(ContactRequest $request, ContactService $mailer): RedirectResponse
+    public function send(ContactRequest $request, ContactMailer $mailer): RedirectResponse
     {
         $data = $request->validated();
         \Log::debug('Sending contact mail: ', $data);
