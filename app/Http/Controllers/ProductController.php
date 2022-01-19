@@ -23,6 +23,9 @@ class ProductController extends Controller
     {
         $product = Product::with('ProductInfo')->findOrFail($productId);
         $logger->logModel($request->user(), $product);
+
+        // Implement order functionality
+
         return back();
     }
 }
