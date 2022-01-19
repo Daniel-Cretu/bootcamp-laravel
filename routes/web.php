@@ -36,6 +36,5 @@ Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/blog/article/{articleId}', [ArticleController::class, 'show'])->name('article');
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
-Route::get('/productGet/{productId}', [ProductController::class, 'getProduct'])->name('product.get');
 Route::post('/productAdd/{productId}', [ProductController::class, 'addProduct'])->name('product.add');
 Route::post('/commentSend/{commentId}', [CommentController::class, 'send'])->name('comment.send');
