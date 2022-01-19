@@ -37,4 +37,4 @@ Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/blog/article/{articleId}', [ArticleController::class, 'show'])->name('article');
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::get('/product/{productId}', [ProductController::class, 'index'])->name('product');
-Route::post('/contactSend/{articleId}', [CommentController::class, 'send'])->name('comment.send');
+Route::post('/commentSend/{commentId}', [CommentController::class, 'send'])->name('comment.send');
