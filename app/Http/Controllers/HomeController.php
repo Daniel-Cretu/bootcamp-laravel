@@ -22,7 +22,7 @@ class HomeController extends Controller
             ->orderby('articles.title', 'ASC')
             ->get();
 
-        $products = Product::select('products.id', 'products.category_id', 'products.name', 'products.price', 'products_info.description', 'products_info.image_location')
+        $products = Product::select('products.id', 'products.name', 'products.price', 'products_info.image_location')
             ->join('products_info', 'products_info.product_id', '=', 'products.id')
             ->where('products.flag', '1')
             ->orderby('name', 'ASC')
