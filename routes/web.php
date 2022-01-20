@@ -28,7 +28,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/menu', [MenuController::class, 'index'])->name('menu');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/contact', [ContactController::class, 'view'])->name('contact');
-Route::post('/contactSend', [ContactController::class, 'send'])->name('contact.send');
+Route::post('/contactSend', [ContactController::class, 'send'])->name('contact.send')
+    ->middleware('log.activity:sendContact');
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
