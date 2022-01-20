@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Product extends Model implements LoggableInterface
 {
     use HasFactory;
 
@@ -33,4 +33,19 @@ class Product extends Model
     }
 
     public $timestamps = false;
+
+    public function convertToLoggableString(): string
+    {
+        return "Product with id {$this->id}";
+    }
+
+    public function getData(): array
+    {
+        return [
+            'id' => $this->id,
+            'category_id' => $this->category_id,
+            'name' => $this->name,
+            'price' => $this->price,
+        ];
+    }
 }
