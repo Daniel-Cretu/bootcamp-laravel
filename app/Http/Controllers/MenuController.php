@@ -7,8 +7,8 @@ use App\Models\Product;
 class MenuController extends Controller
 {
     public function index() {
-        $products = Product::select(['id', 'name', 'category_id', 'price'])
-            ->where('flag', '1')
+        $products = Product::join('products_info', 'products_info.product_id', '=', 'products.id')
+            ->where('products.flag', '1')
             ->orderby('name', 'ASC')
             ->get();
         return view('pages.menu', ['products' => $products]);
