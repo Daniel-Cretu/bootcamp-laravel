@@ -1,8 +1,8 @@
-<div class="product bg-light h-100 d-flex flex-column justify-content-between my-xl-3">
-    <div class="product-info" data-bs-toggle="modal" data-bs-target="#modal-{{$product->id}}">
+<div class="product bg-light d-flex flex-column justify-content-between my-xl-3">
+    <a class="product-info text-decoration-none text-dark" href="{{route('product', $product->id)}}">
         @include('../atoms.product-img',['productImageLocation' => $product->image_location])
         <h4 class="title px-2">{{$product->name}}</h4>
-    </div>
+    </a>
     <div class="d-flex flex-row justify-content-between align-middle px-2">
         <h4 class="price my-auto">{{$product->price}} lei</h4>
         <button class="btn">
@@ -11,37 +11,5 @@
                 <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
             </svg>
         </button>
-    </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="modal-{{$product->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg m-auto">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">{{$product->name}}</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="mb-4 rounded-3">
-                <div class="container-fluid">
-                    <h1 class="m-4"></h1>
-                    <div class="row">
-                        <div class="col-12 col-lg-6">
-                                                @include('../atoms.product-img',['productImageLocation' => $product->image_location])
-                        </div>
-                        <div class="col-12 col-lg-6">
-                            <h3 class="my-2">Toppings</h3>
-                            @for ($i = 0; $i < 4; $i++)
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="topping-{{$product->id}}}-{{$i+1}}">
-                                <label class="form-check-label text-break" for="topping-{{$product->id}}}-{{$i+1}}">Topping {{$i+1}}</label>
-                            </div>
-                            @endfor
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button class="btn m-3 btn-outline-secondary btn-lg" type="button">Add</button>
-        </div>
     </div>
 </div>
