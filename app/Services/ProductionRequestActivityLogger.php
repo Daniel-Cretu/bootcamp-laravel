@@ -9,6 +9,6 @@ class ProductionRequestActivityLogger extends AbstractRequestActivityLogger
 {
     protected function collectRequestData(Request $request): array
     {
-        return ["Url" => $request->fullUrl() ,"Time" => Carbon::now()];
+        return ["IP" => $request->ip(), "Url" => $request->fullUrl() ,"Time" => Carbon::now()];
     }
 }
