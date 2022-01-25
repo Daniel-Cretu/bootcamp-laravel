@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Services\DummyRequestActivityLogger;
+use App\Services\RequestActivityLoggerInterface;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
@@ -24,7 +26,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Paginator::defaultView('molecules/paginator');
-//        Paginator::defaultView('molecules/paginator-simple');
+        $this->app->bind(RequestActivityLoggerInterface::class, function () {
+            return $this->app->make(DummyRequestActivityLogger::class);
+            // Environment type. Return Debug or Production
+        });
     }
 }
