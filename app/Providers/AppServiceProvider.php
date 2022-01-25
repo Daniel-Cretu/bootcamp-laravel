@@ -19,7 +19,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(RequestActivityLoggerInterface::class, function () {
-            if(strtolower(env('APP_ENV')) === 'production')
+            if(strtolower(config('APP_ENV')) === 'production')
             {
                 return $this->app->make(ProductionRequestActivityLogger::class);
             }
