@@ -52,5 +52,19 @@ class RouletteLeaderboard extends Command
         ksort($table);
 
         $this->table(['Name', 'Times survived'], $table);
+
+        $cursed_numbers = $this->cacheRepository->get('Cursed-numbers', []);
+
+        $cursedTable = [];
+
+        foreach ($cursed_numbers as $key => $count) {
+            $cursedTable[] = [$key, $count];
+        }
+        sort($cursedTable);
+
+        $this->table(['Cursed Number', 'Times died'], $cursedTable);
+
+        $this->info("Gun's kill streak: " . $this->cacheRepository->get('Kill-streak',0));
+
     }
 }
