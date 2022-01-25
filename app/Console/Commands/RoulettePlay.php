@@ -54,6 +54,13 @@ class RoulettePlay extends Command
 
             if($bulletInChamber === $playerGotChamber)
             {
+                $cursed_numbers = $this->cacheRepository->get('Cursed-numbers', []);
+                $cursed_numbers[$bulletInChamber] = $cursed_numbers[$bulletInChamber] ?? 0;
+                $cursed_numbers[$bulletInChamber]++;
+
+                $this->cacheRepository->set('Cursed-numbers', $cursed_numbers, 86400);
+
+
                 $this->info("Congrats! Back to zero leader score. Reason: You died !");
                 $statistics = $this->cacheRepository->get('Roulette results', []);
                 $statistics[$name] = 0;
