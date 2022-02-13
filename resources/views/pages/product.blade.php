@@ -1,33 +1,27 @@
 @extends('layout')
 @section('content')
     <div class="mb-4 bg-light rounded-3">
-        <div class="container-fluid">
+        <div>
             <h1 class="m-4"></h1>
-{{--            <h6>{{$product[0]}}</h6>--}}
+            <h2>{{$product->name}}</h2>
             <div class="row">
-                <div class="col-12 col-lg-6">
-{{--                    @include('../atoms.product-img',['productImageLocation' => $product->image_location])--}}
+                <div class="col-12 col-lg-6 text-center">
+                    @include('../atoms.product-img',['productImageLocation' => $product->image_location])
+                    <button class="btn my-3 col-12 btn-outline-secondary btn-lg" type="button">Add</button>
                 </div>
                 <div class="col-12 col-lg-6">
-                    <button class="btn my-3 m-lg-0 col-12 btn-outline-secondary btn-lg" type="button">Add</button>
-                    <div class="row p-3">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate dolore earum ex perferendis reprehenderit. Aliquid aperiam atque culpa cupiditate debitis dolor dolorem dolores eius eos eveniet excepturi facilis impedit inventore ipsam molestiae nobis non officia perspiciatis quam quasi quidem reiciendis repellendus suscipit, tempore ullam? Animi architecto dicta doloribus error nisi?
-                    </div>
+                    <h3 class="my-4">Description</h3>
+                    <div class="row p-3">{{$product->description}}</div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row p-0 m-0 d-flex flex-wrap ">
-        <h3 class="my-4">Toppings</h3>
-        @for ($i = 0; $i < 4; $i++)
-                <div class="row my-2 align-items-center justify-content-between">
-                    <div class="col-12 col-lg-8 my-2 my-lg-0 text-center text-lg-start">Topping {{$i+1}}</div>
-                    <div class="col-12 col-lg-4 d-flex align-items-center justify-content-center justify-content-lg-end">
-                        <div class="btn btn-warning text-light topping-add-rm">-</div>
-                        <div class="mx-5">2</div>
-                        <div class="btn btn-warning text-light topping-add-rm">+</div>
-                    </div>
+        <div class="col-12 row text-center">
+            @for ($i = 0; $i < 6; $i++)
+                <div class="col-auto my-1">
+                    <input type="checkbox" class="btn-check" id="btn-check-outlined{{$i}}" autocomplete="off">
+                    <label class="btn btn-outline-secondary" for="btn-check-outlined{{$i}}">Topping {{$i}}</label><br>
                 </div>
-        @endfor
+            @endfor
+        </div>
     </div>
 @endsection

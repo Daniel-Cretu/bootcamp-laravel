@@ -45,7 +45,7 @@ class Product extends Model implements LoggableInterface
             'id' => $this->id,
             'category_id' => $this->category_id,
             'name' => $this->name,
-            'price' => $this->price
+            'price' => $this->price,
         ];
     }
 }
