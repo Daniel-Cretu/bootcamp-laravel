@@ -21,4 +21,14 @@ class ProductController extends Controller
 
         return view('pages.product',['product' => $product]);
     }
+
+    public function addProduct($productId,Request $request, ModelLogger $logger)
+    {
+        $product = Product::with('ProductInfo')->findOrFail($productId);
+        $logger->logModel($request->user(), $product);
+
+        // Implement order functionality
+
+        return back();
+    }
 }
