@@ -6,7 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Pizza Delivery System</title>
         <link rel="stylesheet" href="{{asset('assets/bootstrap/css/bootstrap.css')}}">
-        <link rel="stylesheet" href="{{asset('assets/css/styles.css')}}">
+        <link rel="stylesheet" href="{{asset('css/app.css')}}">
+        <link rel="stylesheet" href="{{asset('css/app.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/blog/css/blog.css')}}">
     </head>
     <body class="d-flex flex-column">
     @include('organisms.header')
@@ -14,6 +16,9 @@
         @yield('content')
     </main>
     @include('organisms.footer')
-    <script src="{{asset('assets/bootstrap/js/bootstrap.js')}}" crossorigin="anonymous"></script>
+        <script src="{{asset('assets/bootstrap/js/bootstrap.js')}}" crossorigin="anonymous"></script>
+        <script src="/assets/js/app.js"></script>
+        <script src="/assets/blog/js/blog.js"></script>
+
     </body>
 </html>
