@@ -1,0 +1,121 @@
+* {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+@media only screen and (min-width: 768px) {
+    * {
+        font-size: 20px;
+    }
+}
+
+
+/* HEADER START */
+body {
+    background-image: url("../img/pizza-background.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+header {
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+}
+
+.header--logo {
+    width: 90px;
+    height: auto;
+}
+
+.carousel-item img {
+    height: 200px;
+    object-fit: cover;
+}
+
+@media only screen and (min-width: 768px) {
+    .carousel-item img {
+        height: 400px;
+    }
+}
+
+.product img {
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    width: 100%;
+    filter: blur(0px) grayscale(5%);
+}
+
+@media only screen and (min-width: 768px) {
+    .product img {
+        height: 250px;
+    }
+}
+
+.product-info:hover {
+    cursor: pointer;
+}
+
+.product-info:hover h4.title {
+    color: #e36c29;
+}
+
+.product .cart:hover {
+    cursor: pointer;
+    color: #e36c29;
+}
+
+.product .title {
+    word-break: break-all;
+}
+
+.text-shadow {
+    text-shadow: #000 1px 1px 5px;
+}
+
+.product h4.center {
+    position: absolute;
+    right: 50%;
+    bottom: 50%;
+    transform: translate(50%, 50%);
+}
+
+.topping-add-rm {
+    width: 70px;
+}
+
+.article img {
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    width: 100%;
+    filter: blur(0px) grayscale(5%);
+}
+
+@media only screen and (min-width: 768px) {
+    .article img {
+        height: 250px;
+    }
+}
+
+
+/* HEADER END */
+/* FOOTER START */
+/* FOOTER END */
+
+.layered-box {
+    box-shadow:
+        0 1px 1px hsl(0deg 0% 0% / 0.075),
+        0 2px 2px hsl(0deg 0% 0% / 0.075),
+        0 4px 4px hsl(0deg 0% 0% / 0.075),
+        0 8px 8px hsl(0deg 0% 0% / 0.075),
+        0 16px 16px hsl(0deg 0% 0% / 0.075)
+    ;
+}
+
+#img-home-logo{
+    width: 100%;
+}
