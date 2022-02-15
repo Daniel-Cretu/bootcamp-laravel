@@ -1,12 +1,12 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\Api\ArticleApiController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MenuController;
@@ -39,3 +39,9 @@ Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::post('/productAdd/{productId}', [ProductController::class, 'addProduct'])->name('product.add');
 Route::get('/product/{productId}', [ProductController::class, 'index'])->name('product');
 Route::post('/commentSend/{commentId}', [CommentController::class, 'send'])->name('comment.send');
+
+Route::get('/api/articles/most-popular',  [ArticleApiController::class, 'readMostPopularArticles']);
+Route::get('/api/articles',  [ArticleApiController::class, 'readAllArticles']);
+Route::get('/api/articles/{id}',  [ArticleApiController::class, 'readOneArticle']);
+Route::delete('/api/articles/{id}',  [ArticleApiController::class, 'deleteArticle']);
+Route::post('/api/articles/',  [ArticleApiController::class, 'createArticle']);
