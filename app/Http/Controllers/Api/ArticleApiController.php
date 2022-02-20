@@ -9,6 +9,7 @@ use App\Services\ModelLogger;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\ResponseFactory;
+use Illuminate\Support\Str;
 
 class ArticleApiController extends Controller
 {
@@ -101,20 +102,20 @@ class ArticleApiController extends Controller
      */
     public function createArticle(Request $request): JsonResponse
     {
-        // not the best validation logic
-        if ($request->input('title') === 'some') {
-            return $this->responseFactory->json(['message' => 'incorrect title'], 400);
-        }
+        $request->validate([
+            'title' => ['required', 'string', 'max:255', 'min:10'],
+            'description' => ['required', 'string', 'min:50'],
+        ]);
 
         $article = Article::create([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
             'author_id' => 1,
-            'image' => 'e963ea7695c2d577b8f575b1059626bb.png',
-            'excerpt' => $request->input('excerpt'),
-            'category_id' => 2,
-            'seo_title' => $request->input('seo_title'),
-            'seo_description' => $request->input('seo_description'),
+            'image' => $request->file('image')->store('/', 'public'),
+            'excerpt' => Str::limit($request->input('description')),
+            'blog_category_id' => $request->input('category'),
+            'seo_title' => $request->input('title'),
+            'seo_description' => Str::limit($request->input('description'), 200),
         ]);
 
         return $this->responseFactory->json(['id' => $article->id], 201);

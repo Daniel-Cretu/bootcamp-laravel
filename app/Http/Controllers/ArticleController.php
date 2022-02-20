@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
+use App\Models\BlogCategory;
 use App\Models\Comment;
 use App\Models\LoggableInterface;
 use App\Services\ModelLogger;
@@ -54,5 +55,14 @@ class ArticleController extends Controller
 
         // Not found
         return $this->responseFactory->json(null, 404);
+    }
+
+    public function create()
+    {
+        $categories = BlogCategory::select('id', 'name')->get();
+
+        return view('pages.articleCreate', [
+            'categories' => $categories
+        ]);
     }
 }

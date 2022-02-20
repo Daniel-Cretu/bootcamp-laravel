@@ -34,7 +34,10 @@ Route::post('/contactSend', [ContactController::class, 'send'])->name('contact.s
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+Route::get('/blog/article/create', [ArticleController::class, 'create']);
 Route::get('/blog/article/{articleId}', [ArticleController::class, 'show'])->name('article');
+
+
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::post('/productAdd/{productId}', [ProductController::class, 'addProduct'])->name('product.add');
 Route::get('/product/{productId}', [ProductController::class, 'index'])->name('product');
