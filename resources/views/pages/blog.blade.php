@@ -13,8 +13,13 @@
                         <a class="p-3 link-secondary" href="#">Travel</a>
                     </nav>
                 </div>
-                <div class="row m-0 p-0">
-                    {{ $articles->links() }}
+                <div class="m-0 p-0 d-flex justify-content-between">
+                    <div class="col">
+                        <a class="btn btn-primary" href="/blog/article/create">Create an article</a>
+                    </div>
+                    <div class="col">
+                        {{ $articles->links() }}
+                    </div>
                 </div>
                 <div class="row mx-4">
                     <form method="GET" action="/blog" class="row p-0 m-0">
