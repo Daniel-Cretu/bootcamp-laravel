@@ -105,12 +105,15 @@ class ArticleApiController extends Controller
         $request->validate([
             'title' => ['required', 'string', 'max:255', 'min:10'],
             'description' => ['required', 'string', 'min:50'],
+            'category' => 'required|numeric',
+            'author' => 'required|numeric',
+            'image' => 'image'
         ]);
 
         $article = Article::create([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
-            'author_id' => 1,
+            'author_id' => $request->input('author'),
             'image' => $request->file('image')->store('/', 'public'),
             'excerpt' => Str::limit($request->input('description')),
             'blog_category_id' => $request->input('category'),
@@ -119,6 +122,41 @@ class ArticleApiController extends Controller
         ]);
 
         return $this->responseFactory->json(['id' => $article->id], 201);
+    }
+
+    /**
+     * Edit an existing article using provided data
+     *
+     * @param $articleId
+     * @param Request $request
+     *
+     * @return JsonResponse
+     */
+    public function editArticle($articleId, Request $request): JsonResponse
+    {
+        $request->validate([
+            'title' => ['required', 'string', 'max:255', 'min:10'],
+            'description' => ['required', 'string', 'min:50'],
+            'category' => 'required|numeric',
+            'author' => 'required|numeric',
+        ]);
+
+        $article = Article::find($articleId);
+
+        $article->title = $request->input('title');
+        $article->description = $request->input('description');
+        $article->author_id = $request->input('author');
+        if($request->file('image')) {
+            $article->image = $request->file('image')->store('/', 'public');
+        }
+        $article->excerpt = Str::limit($request->input('description'));
+        $article->blog_category_id = $request->input('category');
+        $article->seo_title = $request->input('title');
+        $article->seo_description = Str::limit($request->input('description'), 200);
+
+        $article->save();
+
+        return $this->responseFactory->json(['id' => $articleId], 201);
     }
 
 

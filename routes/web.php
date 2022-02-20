@@ -35,6 +35,7 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/blog/article/create', [ArticleController::class, 'create']);
+Route::get('/blog/article/edit/{articleId}', [ArticleController::class, 'edit']);
 Route::get('/blog/article/{articleId}', [ArticleController::class, 'show'])->name('article');
 
 
@@ -48,3 +49,4 @@ Route::get('/api/articles',  [ArticleApiController::class, 'readAllArticles']);
 Route::get('/api/articles/{id}',  [ArticleApiController::class, 'readOneArticle']);
 Route::delete('/api/articles/{id}',  [ArticleApiController::class, 'deleteArticle']);
 Route::post('/api/articles/',  [ArticleApiController::class, 'createArticle']);
+Route::post('/api/articles/{articleId}', [ArticleApiController::class, 'editArticle']);
