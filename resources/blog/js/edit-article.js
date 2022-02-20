@@ -36,22 +36,23 @@ function getErrorToastTemplate(key, error) {
     `;
 }
 
-/** @type {HTMLFontElement} createArticleForm */
-const createArticleForm = document.getElementById('createArticleForm')
+/** @type {HTMLFontElement} editArticleForm */
+const editArticleForm = document.getElementById('editArticleForm')
 
-if (createArticleForm) {
+
+if (editArticleForm) {
     /** @type {HTMLInputElement} titleInput */
-    const titleInput = createArticleForm.querySelector('#titleInput')
+    const titleInput = editArticleForm.querySelector('#titleInput')
     /** @type {HTMLTextAreaElement} descriptionInput */
-    const descriptionInput = createArticleForm.querySelector('#descriptionInput')
+    const descriptionInput = editArticleForm.querySelector('#descriptionInput')
     /** @type {HTMLSelectElement} categoryInput */
-    const categoryInput = createArticleForm.querySelector('#categoryInput')
+    const categoryInput = editArticleForm.querySelector('#categoryInput')
     /** @type {HTMLSelectElement} imagePreview */
-    const authorInput = createArticleForm.querySelector('#authorInput')
+    const authorInput = editArticleForm.querySelector('#authorInput')
     /** @type {HTMLInputElement} imageInput */
-    const imageInput = createArticleForm.querySelector('#imageInput')
+    const imageInput = editArticleForm.querySelector('#imageInput')
     /** @type {HTMLImageElement} imagePreview */
-    const imagePreview = createArticleForm.querySelector('#imagePreview')
+    const imagePreview = editArticleForm.querySelector('#imagePreview')
 
     imageInput.onchange = (event) => {
         const file = imageInput.files[0];
@@ -65,7 +66,7 @@ if (createArticleForm) {
         }
     }
 
-    createArticleForm.onsubmit = (event) => {
+    editArticleForm.onsubmit = (event) => {
         event.preventDefault();
 
         const article = new Article(titleInput.value, descriptionInput.value, categoryInput.value, authorInput.value, imageInput.files[0])
@@ -88,7 +89,7 @@ if (createArticleForm) {
             imagePreview.hidden = true;
         }
 
-        axios.post('/api/articles', formData)
+        axios.post('/api/articles/'+document.getElementById('articleId').value, formData)
             .then(response => {
                 const errorToastsRegion = document.querySelector('[error-toasts-region]');
                 errorToastsRegion.innerHTML = getSuccessToastTemplate()
