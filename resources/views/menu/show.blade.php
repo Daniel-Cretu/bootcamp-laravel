@@ -7,19 +7,17 @@
                 <div class="col-12 col-lg-6 col-xl-4 my-2 p-0 d-flex justify-content-center">
                     <div class="col-12 col-lg-11 ">
                         <div class="product card shadow-sm">
-                            <div style="position:relative;">
-                                <div class="d-flex flex-wrap flex-column justify-content-start product-warnings-container">
-                                    @foreach($product->warnings as $warning)
-                                        <img src="images/warnings/{{$warning->image_location}}"
-                                             class="card-img-top product-warning"
-                                             alt="Warning {{$warning->name}}" title="{{$warning->name}}"
-                                        >
-                                    @endforeach
-                                </div>
-                                <img src="{{asset('storage/' . $product->image_location)}}"
-                                     class="product-img card-img-top" alt="{{$product->name}}"
-                                >
+                            <div class="d-flex flex-wrap flex-column justify-content-start product-warnings-container">
+                                @foreach($product->warnings as $warning)
+                                    <img src="images/warnings/{{$warning->image_location}}"
+                                         class="card-img-top product-warning"
+                                         alt="Warning {{$warning->name}}" title="{{$warning->name}}"
+                                    >
+                                @endforeach
                             </div>
+                            <img src="{{asset('storage/' . $product->image_location)}}"
+                                 class="product-img card-img-top" alt="{{$product->name}}"
+                            >
                             <div class="card-body">
                                 <h5 class="card-title">{{$product->name}}</h5>
                                 <div class="d-flex justify-content-between">
@@ -32,7 +30,6 @@
                                     </a>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -46,19 +43,17 @@
                 <div class="col-12 col-lg-6 col-xl-4 my-2 p-0 d-flex justify-content-center">
                     <div class="col-12 col-lg-11 ">
                         <div class="product card shadow-sm">
-                            <div style="position:relative;">
-                                <div class="d-flex flex-wrap flex-column justify-content-start product-warnings-container">
-                                    @foreach($product->warnings as $warning)
-                                        <img src="images/warnings/{{$warning->image_location}}"
-                                             class="card-img-top product-warning"
-                                             alt="Warning {{$warning->name}}" title="{{$warning->name}}"
-                                        >
-                                    @endforeach
-                                </div>
-                                <img src="{{asset('storage/' . $product->image_location)}}"
-                                     class="product-img card-img-top" alt="{{$product->name}}"
-                                >
+                            <div class="d-flex flex-wrap flex-column justify-content-start product-warnings-container">
+                                @foreach($product->warnings as $warning)
+                                    <img src="images/warnings/{{$warning->image_location}}"
+                                         class="card-img-top product-warning"
+                                         alt="Warning {{$warning->name}}" title="{{$warning->name}}"
+                                    >
+                                @endforeach
                             </div>
+                            <img src="{{asset('storage/' . $product->image_location)}}"
+                                 class="product-img card-img-top" alt="{{$product->name}}"
+                            >
                             <div class="card-body">
                                 <h5 class="card-title">{{$product->name}}</h5>
                                 <div class="d-flex justify-content-between">
@@ -71,7 +66,6 @@
                                     </a>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -85,19 +79,17 @@
                 <div class="col-12 col-lg-6 col-xl-4 my-2 p-0 d-flex justify-content-center">
                     <div class="col-12 col-lg-11 ">
                         <div class="product card shadow-sm">
-                            <div style="position:relative;">
-                                <div class="d-flex flex-wrap flex-column justify-content-start product-warnings-container">
-                                    @foreach($product->warnings as $warning)
-                                        <img src="images/warnings/{{$warning->image_location}}"
-                                             class="card-img-top product-warning"
-                                             alt="Warning {{$warning->name}}" title="{{$warning->name}}"
-                                        >
-                                    @endforeach
-                                </div>
-                                <img src="{{asset('storage/' . $product->image_location)}}"
-                                     class="product-img card-img-top" alt="{{$product->name}}"
-                                >
+                            <div class="d-flex flex-wrap flex-column justify-content-start product-warnings-container">
+                                @foreach($product->warnings as $warning)
+                                    <img src="images/warnings/{{$warning->image_location}}"
+                                         class="card-img-top product-warning"
+                                         alt="Warning {{$warning->name}}" title="{{$warning->name}}"
+                                    >
+                                @endforeach
                             </div>
+                            <img src="{{asset('storage/' . $product->image_location)}}"
+                                 class="product-img card-img-top" alt="{{$product->name}}"
+                            >
                             <div class="card-body">
                                 <h5 class="card-title">{{$product->name}}</h5>
                                 <div class="d-flex justify-content-between">
@@ -110,7 +102,6 @@
                                     </a>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -124,19 +115,17 @@
                 <div class="col-12 col-lg-6 col-xl-4 my-2 p-0 d-flex justify-content-center">
                     <div class="col-12 col-lg-11 ">
                         <div class="product card shadow-sm">
-                            <div style="position:relative;">
-                                <div class="d-flex flex-wrap flex-column justify-content-start product-warnings-container">
-                                    @foreach($product->warnings as $warning)
-                                        <img src="images/warnings/{{$warning->image_location}}"
-                                             class="card-img-top product-warning"
-                                             alt="Warning {{$warning->name}}" title="{{$warning->name}}"
-                                        >
-                                    @endforeach
-                                </div>
-                                <img src="{{asset('storage/' . $product->image_location)}}"
-                                     class="product-img card-img-top" alt="{{$product->name}}"
-                                >
+                            <div class="d-flex flex-wrap flex-column justify-content-start product-warnings-container">
+                                @foreach($product->warnings as $warning)
+                                    <img src="images/warnings/{{$warning->image_location}}"
+                                         class="card-img-top product-warning"
+                                         alt="Warning {{$warning->name}}" title="{{$warning->name}}"
+                                    >
+                                @endforeach
                             </div>
+                            <img src="{{asset('storage/' . $product->image_location)}}"
+                                 class="product-img card-img-top" alt="{{$product->name}}"
+                            >
                             <div class="card-body">
                                 <h5 class="card-title">{{$product->name}}</h5>
                                 <div class="d-flex justify-content-between">
@@ -149,7 +138,6 @@
                                     </a>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
