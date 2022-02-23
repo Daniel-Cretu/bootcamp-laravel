@@ -57,13 +57,9 @@ use Illuminate\Support\Facades\Route;
 //Navigation
 Route::get('/home', [HomeController::class, 'show'])->name('home');
 Route::get('/menu', [MenuController::class, 'show'])->name('menu');
+Route::get('/blog', [BlogController::class, 'show'])->name('blog');
 Route::get('/cart', [CartController::class, 'show'])->name('cart');
 
-//Blog
-Route::prefix('/blog')->group(function () {
-    Route::get('', [BlogController::class, 'show'])->name('blog');
-    Route::get('/category/{categoryId}', [BlogController::class, 'show'])->name('blog.category');
-});
 
 //Articles
 Route::get('/articles/{articleId}', [ArticleController::class, 'show'])->name('article.show');
