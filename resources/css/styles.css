@@ -6,14 +6,14 @@
 
 @media only screen and (min-width: 768px) {
     * {
-        font-size: 20px;
+        font-size: 16px;
     }
 }
 
 
 /* HEADER START */
 body {
-    background-image: url("../img/pizza-background.jpg");
+    background-image: url("../images/pizza-background.jpg");
     background-size: cover;
     background-attachment: fixed;
     min-height: 100vh;
@@ -41,65 +41,65 @@ header {
     }
 }
 
-.product img {
-    height: 150px;
-    object-fit: cover;
-    display: block;
-    width: 100%;
-    filter: blur(0px) grayscale(5%);
-}
+/*.product img {*/
+/*    height: 150px;*/
+/*    object-fit: cover;*/
+/*    display: block;*/
+/*    width: 100%;*/
+/*    filter: blur(0px) grayscale(5%);*/
+/*}*/
 
-@media only screen and (min-width: 768px) {
-    .product img {
-        height: 250px;
-    }
-}
+/*@media only screen and (min-width: 768px) {*/
+/*    .product img {*/
+/*        height: 250px;*/
+/*    }*/
+/*}*/
 
-.product-info:hover {
-    cursor: pointer;
-}
+/*.product-info:hover {*/
+/*    cursor: pointer;*/
+/*}*/
 
-.product-info:hover h4.title {
-    color: #e36c29;
-}
+/*.product-info:hover h4.title {*/
+/*    color: #e36c29;*/
+/*}*/
 
-.product .cart:hover {
-    cursor: pointer;
-    color: #e36c29;
-}
+/*.product .cart:hover {*/
+/*    cursor: pointer;*/
+/*    color: #e36c29;*/
+/*}*/
 
-.product .title {
-    word-break: break-all;
-}
+/*.product .title {*/
+/*    word-break: break-all;*/
+/*}*/
 
-.text-shadow {
-    text-shadow: #000 1px 1px 5px;
-}
+/*.text-shadow {*/
+/*    text-shadow: #000 1px 1px 5px;*/
+/*}*/
 
-.product h4.center {
-    position: absolute;
-    right: 50%;
-    bottom: 50%;
-    transform: translate(50%, 50%);
-}
+/*.product h4.center {*/
+/*    position: absolute;*/
+/*    right: 50%;*/
+/*    bottom: 50%;*/
+/*    transform: translate(50%, 50%);*/
+/*}*/
 
-.topping-add-rm {
-    width: 70px;
-}
+/*.topping-add-rm {*/
+/*    width: 70px;*/
+/*}*/
 
-.article img {
-    height: 150px;
-    object-fit: cover;
-    display: block;
-    width: 100%;
-    filter: blur(0px) grayscale(5%);
-}
+/*.article img {*/
+/*    height: 150px;*/
+/*    object-fit: cover;*/
+/*    display: block;*/
+/*    width: 100%;*/
+/*    filter: blur(0px) grayscale(5%);*/
+/*}*/
 
-@media only screen and (min-width: 768px) {
-    .article img {
-        height: 250px;
-    }
-}
+/*@media only screen and (min-width: 768px) {*/
+/*    .article img {*/
+/*        height: 250px;*/
+/*    }*/
+/*}*/
 
 
 /* HEADER END */
@@ -116,6 +116,6 @@ header {
     ;
 }
 
-#img-home-logo{
-    width: 100%;
-}
+/*#img-home-logo{*/
+/*    width: 100%;*/
+/*}*/

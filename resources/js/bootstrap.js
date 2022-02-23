@@ -1,3 +1,4 @@
+require('bootstrap/dist/js/bootstrap.bundle.min');
 window.$ = window.jQuery = require('jquery');
 window._ = require('lodash');
 
