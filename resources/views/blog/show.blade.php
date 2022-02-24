@@ -14,7 +14,7 @@
                             <div class="list-group">
                                 @foreach($categories as $category)
                                     <a class="text-decoration-none @if($filter['category'] === $category->id) active @endif"
-                                       href="/blog?category={{$category->id}}"
+                                       href="{{route('blog', ['categoryId' => $category->id])}}"
                                        title="{{ $category->name }}"
                                     >
                                         <div class="list-group-item d-flex justify-content-between align-items-center">
@@ -35,7 +35,7 @@
                             @foreach($categories as $category)
                             <div class="nav-item col-3 active">
                                 <a class="nav-link @if($filter['category'] === $category->id) active @endif"
-                                   href="/blog?category={{$category->id}}"
+                                   href="{{route('blog', ['categoryId' => $category->id])}}"
                                    title="{{ $category->name }}"
                                 >
                                     <div class="d-flex justify-content-between align-items-center">

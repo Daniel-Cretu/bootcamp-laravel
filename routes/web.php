@@ -55,11 +55,11 @@ use Illuminate\Support\Facades\Route;
 // New Routes
 
 //Navigation
-Route::get('/home', [HomeController::class, 'show'])->name('home');
+Route::get('', [HomeController::class, 'show'])->name('home');
 Route::get('/menu', [MenuController::class, 'show'])->name('menu');
-Route::get('/blog', [BlogController::class, 'show'])->name('blog');
 Route::get('/cart', [CartController::class, 'show'])->name('cart');
 
+Route::get('/blog/categories/{categoryId?}', [BlogController::class, 'show'])->name('blog');
 
 //Articles
 Route::get('/articles/{articleId}', [ArticleController::class, 'show'])->name('article.show');

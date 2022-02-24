@@ -7,14 +7,12 @@ use App\Models\BlogCategory;
 
 class BlogController extends Controller
 {
-    public function show() {
-        $request = request()->all();
-
+    public function show($categoryId = null) {
         $categories = BlogCategory::select('id', 'name')->withCount('article')
             ->orderBy('article_count', 'DESC')
             ->get();
 
-        $category = $request['category'] ?? $categories->first()->id;
+        $category = $categoryId ?? $categories->first()->id;
 
         $articles = Article::where('blog_category_id', '=', $category)
             ->with(['blogTags'])
@@ -25,8 +23,6 @@ class BlogController extends Controller
             ->orderBy('published_at', 'DESC')
             ->limit(5)
             ->get();
-
-        $articles->appends(['category' => $category]);
 
         return view('blog.show',
             [
