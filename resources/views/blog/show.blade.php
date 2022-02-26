@@ -82,13 +82,14 @@
                 <ul class="list-group list">
                     @foreach($topFiveCommentedArticles as $article)
                         <li class="card mb-2 mx-1" title="{{$article->title}}">
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
-                                <i class="bi bi-chat-dots">{{$article->comments_count}}</i>
-                            </span>
-                            <div class="row g-0">
-                                <div class="col-md-4">
+
+                            <div class="row m-0 p-0 g-0">
+                                <div class="col-md-4 position-relative">
                                     <img src="{{$article->image_url}}"
                                          class="rounded-start most-popular-article-img img-fluid" alt="">
+                                    <span class="article-comments translate-middle badge rounded-pill bg-primary">
+                                        <i class="bi bi-chat-dots">{{$article->comments_count}}</i>
+                                    </span>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">

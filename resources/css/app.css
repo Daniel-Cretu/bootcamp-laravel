@@ -41,6 +41,12 @@
     height: 100%;
     object-fit: cover;
 }
+
+.article-comments {
+    position: absolute;
+    bottom: 0px;
+    right: -15px;
+}
 /***********/
 /*Menu page*/
 /***********/
