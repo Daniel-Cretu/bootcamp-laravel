@@ -5,15 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Product;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function show()
     {
-
-        // Articles with title, category name, and others(using on main page) for this month
         $articles = Article::select(['articles.id', 'articles.title', 'articles.published_at', 'articles.image', 'articles.excerpt', 'blog_categories.name'])
             ->where('articles.published_at', '>=', Carbon::today()->startOfMonth())
             ->where('articles.published_at', '<=', Carbon::today()->endOfMonth())
@@ -28,6 +24,7 @@ class HomeController extends Controller
             ->orderby('name', 'ASC')
             ->limit(4)
             ->get();
-        return view('pages.home', ['articles' => $articles, 'products' => $products]);
+
+        return view('home.show', ['articles' => $articles, 'products' => $products]);
     }
 }
