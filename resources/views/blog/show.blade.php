@@ -53,7 +53,7 @@
                 </div>
                 @foreach($articles as $article)
                     <div class="card mb-3 article shadow-sm">
-                        <a class="article-url">
+                        <a class="article-url" href="{{route('article.show', $article->id)}}">
                             <img src="{{$article->image_url}}" class="card-img-top article-img"
                                  alt="{{$article->title}}"
                             >
@@ -83,7 +83,7 @@
                     @foreach($topFiveCommentedArticles as $article)
                         <li class="card mb-2 mx-1" title="{{$article->title}}">
 
-                            <div class="row m-0 p-0 g-0">
+                            <a class="row m-0 p-0 g-0 text-decoration-none" href="{{route('article.show', $article->id)}}">
                                 <div class="col-md-4 position-relative">
                                     <img src="{{$article->image_url}}"
                                          class="rounded-start most-popular-article-img img-fluid" alt="">
@@ -100,7 +100,7 @@
                                         </p>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </li>
                     @endforeach
                 </ul>
