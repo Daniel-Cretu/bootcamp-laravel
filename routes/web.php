@@ -1,19 +1,20 @@
 <?php
 
 use App\Http\Controllers\AboutController;
-//use App\Http\Controllers\Api\ArticleApiController;
+use App\Http\Controllers\Api\ProductsApiController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\BlogController;
-use App\Http\Controllers\CartController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
-//use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MenuController;
+use Illuminate\Support\Facades\Route;
+
+//use App\Http\Controllers\Api\ArticleApiController;
+//use App\Http\Controllers\LoginController;
 //use App\Http\Controllers\ProductController;
 //use App\Http\Controllers\RegisterController;
 //use App\Http\Controllers\test;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,7 +58,6 @@ use Illuminate\Support\Facades\Route;
 //Navigation
 Route::get('', [HomeController::class, 'show'])->name('home');
 Route::get('/menu', [MenuController::class, 'show'])->name('menu');
-Route::get('/cart', [CartController::class, 'show'])->name('cart');
 
 Route::get('/blog/categories/{categoryId?}', [BlogController::class, 'show'])->name('blog');
 

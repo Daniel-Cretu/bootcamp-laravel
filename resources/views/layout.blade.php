@@ -11,6 +11,57 @@
     <script src="/assets/js/app.js"></script>
 </head>
 <body class="d-flex flex-column">
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="canvasCart" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header py-2 layered-box">
+        <div id="offcanvasRightLabel">
+            <i class="bi bi-bag fs-3"></i>
+            <span class="fs-3">My Cart</span>
+        </div>
+        <button type="button" class="btn-close shadow-none text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="overflow-scroll mb-2 d-flex justify-content-between flex-column h-100">
+        {{--Products--}}
+        <div class="offcanvas-body cart-products-container">
+        </div>
+        {{--Footer--}}
+        {{--Button trigger modal--}}
+        <div class="d-flex justify-content-center m-2">
+            <button class="btn btn-lg btn-secondary" data-bs-toggle="modal" data-bs-target="#orderModal">Proceed further</button>
+        </div>
+    </div>
+</div>
+
+
+
+{{--Modal--}}
+<div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-truncate" id="orderModalLabel">Order information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="orderModalPhone" class="form-label">Phone number</label>
+                    <input type="tel" class="form-control" id="orderModalPhone" placeholder="079123456">
+                </div>
+                <div class="mb-3">
+                    <label for="orderModalAddress" class="form-label">Address</label>
+                    <input type="text" class="form-control" id="orderModalAddress">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="d-flex justify-content-center m-2">
+                    <button class="btn btn-lg btn-secondary" onclick="placeOrder()">Place an order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <header class="bg-light layered-box">
     <div class="container-xxl p-0 px-sm-1">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -44,7 +95,7 @@
                     </a>
                 </li>
                 <li class="col-3 text-center p-0 px-sm-1">
-                    <a href="{{route('cart')}}" class="nav-link text-dark">
+                    <a class="nav-link text-dark" data-bs-toggle="offcanvas" data-bs-target="#canvasCart" aria-controls="offcanvasRight">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-bag d-block mx-auto mb-1" viewBox="0 0 16 16">
                             <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
                         </svg>
