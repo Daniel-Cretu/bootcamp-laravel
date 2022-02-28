@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Product;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
+
 
 class HomeController extends Controller
 {
@@ -18,6 +17,8 @@ class HomeController extends Controller
             ->orderby('name', 'ASC')
             ->limit(6)
             ->get();
+
+//        dd($products);
 
         $topFiveCommentedArticles= Article::withCount('comments')
             ->orderBy('comments_count', 'DESC')

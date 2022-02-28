@@ -27,6 +27,7 @@
             <div class="mb-3">
                 <label for="warningsInput" class="form-label">Warnings</label>
                 <select id="warningsInput" class="form-select" multiple aria-label="size-3 multiple select example">
+                    <option selected>No warnings</option>
                     @foreach($warnings as $warning)
                         <option value="{{ $warning->id }}">{{ $warning->name }}</option>
                     @endforeach

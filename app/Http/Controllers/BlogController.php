@@ -16,7 +16,7 @@ class BlogController extends Controller
 
         $articles = Article::where('blog_category_id', '=', $category)
             ->with(['blogTags'])
-            ->paginate(10)->onEachSide(10);
+            ->paginate(5);
 
         $topFiveCommentedArticles= Article::withCount('comments')
             ->orderBy('comments_count', 'DESC')

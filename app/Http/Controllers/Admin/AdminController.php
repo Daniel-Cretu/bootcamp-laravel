@@ -14,7 +14,7 @@ class AdminController extends Controller
     public function articleCreate()
     {
         $categories = BlogCategory::select('id', 'name')->get();
-        $authors = User::select('id', 'name')->has('articles')->get();
+        $authors = User::select('id', 'name')->get();
 
         return view('admin.article.create', [
             'categories' => $categories,
@@ -26,7 +26,7 @@ class AdminController extends Controller
     {
         $article = Article::find($articleId);
         $categories = BlogCategory::select('id', 'name')->get();
-        $authors = User::select('id', 'name')->has('articles')->get();
+        $authors = User::select('id', 'name')->get();
 
         return view('admin.article.edit'
             , [

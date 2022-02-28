@@ -34,7 +34,7 @@ class ProductApiController
     public function productCreate(Request $request): JsonResponse
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255', 'min:10'],
+            'name' => ['required', 'string', 'max:255', 'min:5'],
             'description' => ['required', 'string', 'min:10'],
             'category' => 'required|numeric',
             'price' => 'required',
@@ -56,7 +56,7 @@ class ProductApiController
         ]);
 
         foreach (explode(',',$request->input('warnings')) as $warning){
-            $product->warnings()->attach(Warning::findOrFail($warning));
+            $product->warnings()->attach(Warning::find($warning));
         }
 
 

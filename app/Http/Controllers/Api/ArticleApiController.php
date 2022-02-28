@@ -35,8 +35,8 @@ class ArticleApiController
     public function articleCreate(Request $request): JsonResponse
     {
         $request->validate([
-            'title' => ['required', 'string', 'max:255', 'min:10'],
-            'description' => ['required', 'string', 'min:50'],
+            'title' => ['required', 'string', 'max:255', 'min:5'],
+            'description' => ['required', 'string', 'min:5'],
             'category' => 'required|numeric',
             'author' => 'required|numeric',
             'image' => 'image'
@@ -67,8 +67,8 @@ class ArticleApiController
     public function articleEdit($articleId, Request $request): JsonResponse
     {
         $request->validate([
-            'title' => ['required', 'string', 'max:255', 'min:10'],
-            'description' => ['required', 'string', 'min:50'],
+            'title' => ['required', 'string', 'max:255', 'min:5'],
+            'description' => ['required', 'string', 'min:5'],
             'category' => 'required|numeric',
             'author' => 'required|numeric',
         ]);

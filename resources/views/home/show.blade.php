@@ -52,7 +52,7 @@
                                 >
                             @endforeach
                         </div>
-                        <img src="@if($product['product_info']){{asset('storage/' . $product['product_info']['image_location'])}} @endif"
+                        <img src="{{asset('storage/' . $product['image_location'])}}"
                              class="product-img card-img-top" alt="{{$product['name']}}"
                         >
                         <div class="card-body">
