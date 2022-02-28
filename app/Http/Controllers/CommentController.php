@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class CommentController
 {
-    public function send($articleId, Request $request): RedirectResponse
+    public function add($articleId, Request $request): RedirectResponse
     {
 
         $comment = new Comment();

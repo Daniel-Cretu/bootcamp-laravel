@@ -2,16 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
+use App\Models\Category;
 
 class MenuController extends Controller
 {
-    public function index() {
-        $products = Product::select('products.id', 'products.name', 'products.price', 'products.category_id', 'products_info.image_location')
-            ->join('products_info', 'products_info.product_id', '=', 'products.id')
-            ->where('products.flag', '1')
-            ->orderby('name', 'ASC')
+    public function show() {
+        $categories = Category::has('products')
+        ->with(['products' => function ($query) {
+            $query->with(['productInfo'])
+                ->with(['warnings'])
+                ->where('flag', '=' , '1')
+            ;
+        }])
             ->get();
-        return view('pages.menu', ['products' => $products]);
+
+
+        return view('menu.show', [
+            'categories' => $categories->toArray()
+        ]);
     }
 }

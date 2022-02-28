@@ -8,8 +8,8 @@ use Illuminate\Http\RedirectResponse;
 
 class ContactController extends Controller
 {
-    public function view(){
-        return view('pages.contact');
+    public function show(){
+        return view('contact.show');
     }
     public function send(ContactRequest $request, ContactMailer $mailer): RedirectResponse
     {

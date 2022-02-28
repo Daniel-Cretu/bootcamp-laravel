@@ -34,7 +34,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Paginator::defaultView('molecules.paginator');
+        Paginator::defaultView('paginator.show');
 
         $this->app->bind(RequestActivityLoggerInterface::class, function () {
             return $this->app->make(DummyRequestActivityLogger::class);

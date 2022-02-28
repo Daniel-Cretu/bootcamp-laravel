@@ -20,7 +20,7 @@ class ContactMailer
     public function send(array $data):void
     {
         $this->infrastructureMailer->send(
-            'molecules.emailContact',
+            'email.contact',
             [
                 'email' => $data['email'],
                 'name' => $data['name'],
