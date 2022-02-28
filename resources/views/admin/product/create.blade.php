@@ -6,8 +6,8 @@
         <form id="createProductForm" action="">
 
             <div class="mb-3">
-                <label for="titleInput" class="form-label">Name</label>
-                <input type="text" class="form-control" id="titleInput" placeholder="Product name">
+                <label for="nameInput" class="form-label">Name</label>
+                <input type="text" class="form-control" id="nameInput" placeholder="Product name">
             </div>
 
             <div class="mb-3">
@@ -18,7 +18,6 @@
             <div class="mb-3">
                 <label for="categoryInput" class="form-label">Category</label>
                 <select id="categoryInput" class="form-select" name="category">
-                    <option selected disabled>Select category</option>
                     @foreach($categories as $category)
                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach
@@ -27,18 +26,16 @@
 
             <div class="mb-3">
                 <label for="warningsInput" class="form-label">Warnings</label>
-{{--                <select id="authorInput" class="form-select" name="author">--}}
-{{--                    <option selected disabled>Select warnings</option>--}}
-{{--                    @foreach($authors as $author)--}}
-{{--                        <option value="{{ $author->id }}">{{ $author->name }}</option>--}}
-{{--                    @endforeach--}}
-{{--                </select>--}}
                 <select id="warningsInput" class="form-select" multiple aria-label="size-3 multiple select example">
-                    <option selected>No warnings selected</option>
                     @foreach($warnings as $warning)
                         <option value="{{ $warning->id }}">{{ $warning->name }}</option>
                     @endforeach
                 </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="priceInput" class="form-label">Price</label>
+                <input type="number" step="0.01" class="form-control" id="priceInput" aria-describedby="emailHelp">
             </div>
 
             <div class="mb-3">

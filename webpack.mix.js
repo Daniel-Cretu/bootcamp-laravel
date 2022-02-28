@@ -13,6 +13,7 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/assets/js')
     .js('resources/blog/js/blog.js', 'public/assets/js')
+    .js('resources/admin/product/js/product.js', 'public/assets/js')
     .postCss('resources/css/app.css', 'public/assets/css', [
         //
     ])

@@ -5,10 +5,13 @@ namespace App\Http\Controllers\Api;
 use App\Models\Order;
 use App\Models\OrderProduct;
 use App\Models\Product;
+use App\Models\ProductInfo;
+use App\Models\Warning;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\ResponseFactory;
 
-class ProductsApiController
+class ProductApiController
 {
     /** @var ResponseFactory */
     private $responseFactory;
@@ -21,7 +24,46 @@ class ProductsApiController
         $this->responseFactory = $responseFactory;
     }
 
-    public function getProducts()
+    /**
+     * Creates new product from provided data
+     *
+     * @param Request $request
+     *
+     * @return JsonResponse
+     */
+    public function productCreate(Request $request): JsonResponse
+    {
+        $request->validate([
+            'name' => ['required', 'string', 'max:255', 'min:10'],
+            'description' => ['required', 'string', 'min:10'],
+            'category' => 'required|numeric',
+            'price' => 'required',
+            'image' => 'image'
+        ]);
+
+        $product = Product::create([
+            'category_id' => $request->input('category'),
+            'name' => $request->input('name'),
+            'price' => $request->input('price'),
+            'flag' => 1,
+        ]);
+
+        ProductInfo::create([
+            'product_id' => $product->id,
+            'description' => $request->input('description'),
+            'image_location' => $request->file('image')->store('/', 'public'),
+
+        ]);
+
+        foreach (explode(',',$request->input('warnings')) as $warning){
+            $product->warnings()->attach(Warning::findOrFail($warning));
+        }
+
+
+        return $this->responseFactory->json(['id' => $product->id], 201);
+    }
+
+    public function getProducts(): JsonResponse
     {
         $products = Product::select('id', 'name')
             ->with(['productInfo'])
@@ -31,7 +73,7 @@ class ProductsApiController
         return $this->responseFactory->json($products);
     }
 
-    public function orderProducts(Request $request)
+    public function orderProducts(Request $request): JsonResponse
     {
         $orderRequest = json_decode($request->getContent());
 
