@@ -179,7 +179,7 @@
     <p class="text-center text-muted">© 2021 Pizza Slice, Inc</p>
 </footer>
 <script src="/assets/js/app.js"></script>
-<script src="/assets/js/blog.js"></script>
+<script src="/assets/js/article.js"></script>
 <script src="/assets/js/product.js"></script>
 </body>
 </html>

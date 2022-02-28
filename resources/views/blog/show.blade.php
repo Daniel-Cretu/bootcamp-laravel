@@ -76,7 +76,7 @@
                                 {{$article->title}}
                             </h5>
                             <p class="card-text">{{$article->excerpt}}</p>
-                            <p class="card-text"><small class="text-muted">{{$article->published_at}}</small></p>
+                            <p class="card-text"><small class="text-muted">{{$article->updated_at}}</small></p>
                         </div>
                     </div>
                 @endforeach
@@ -106,7 +106,7 @@
                                         <h5 class="card-title"></h5>
                                         <p class="card-text text-truncate">{{$article->title}}</p>
                                         <p class="card-text">
-                                            <small class="text-muted">{{$article->published_at}}</small>
+                                            <small class="text-muted">{{$article->updated_at}}</small>
                                         </p>
                                     </div>
                                 </div>

@@ -1,27 +1,17 @@
 @extends('layout')
 @section('content')
     <div class="row m-0 p-0">
-{{--        <div class="col-md-3">--}}
-{{--            <div class="card d-flex flex-column align-items-center">--}}
-{{--                <img src="..." class="card-img article-view-profile-img" alt="...">--}}
-{{--                <div class="card-body">--}}
-{{--                    <h5 class="card-title">{{$article->user->name}}</h5>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <div class="mb-3">--}}
-            <div class="card mb-3 pt-2">
-                <img src="{{$article->image_url}}" class="card-img-top article-view-img" alt="...">
-                <div class="card-body">
-                    <div class="mb-4">
-                        <h1 class="card-title">{{$article->title}}</h1>
-                        <h6 class="card-title">{{$article->user->name}}</h6>
-                    </div>
-                    <p class="card-text">{{$article->description}}</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <div class="card mb-3 pt-2">
+            <img src="{{$article->image_url}}" class="card-img-top article-view-img" alt="...">
+            <div class="card-body">
+                <div class="mb-4">
+                    <h1 class="card-title">{{$article->title}}</h1>
+                    <h6 class="card-title">{{$article->user->name}}</h6>
                 </div>
+                <p class="card-text">{{$article->description}}</p>
+                <p class="card-text"><small class="text-muted">{{$article->updated_at}}</small></p>
             </div>
-{{--        </div>--}}
+        </div>
     </div>
     <h3 class="m-4">Comment section {{$article->comments()->count()}}</h3>
     @foreach($article->comments as $comment)
@@ -29,7 +19,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{$comment->author_email}}</h5>
                 <p class="card-text">{{$comment->message}}</p>
-                <p class="card-text"><small class="text-muted">{{ date('d-M-y', strtotime($comment->created_at)) }}</small></p>
+                <p class="card-text"><small class="text-muted">{{ date('d-M-y', strtotime($comment->updated_at)) }}</small></p>
             </div>
         </div>
     @endforeach
@@ -45,12 +35,10 @@
             </div>
         </div>
         <div class="row p-0 m-0 py-2 d-flex justify-content-center">
-{{--            <div class="col-8">--}}
-                <div class="col-12 col-md-10 form-floating">
-                    <input class="form-control" name="formCommentEmail" placeholder="Email address" id="formCommentEmail"/>
-                    <label class="mx-2" for="formCommentEmail">Email address</label>
-                </div>
-{{--            </div>--}}
+            <div class="col-12 col-md-10 form-floating">
+                <input class="form-control" name="formCommentEmail" placeholder="Email address" id="formCommentEmail"/>
+                <label class="mx-2" for="formCommentEmail">Email address</label>
+            </div>
             <div class="col-12 col-md-2 d-flex justify-content-center align-items-center">
                 <button class="btn btn-lg btn-outline-secondary" type="submit">Comment</button>
             </div>
