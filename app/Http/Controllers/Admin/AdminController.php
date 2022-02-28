@@ -80,14 +80,6 @@ class AdminController extends Controller
 //        return view('admin.product.create');
     }
 
-    public function show()
-    {
-//        $article = Article::findOrFail($articleId);
-//
-//        $logger->logModel($request->user(), $article);
-
-        return view('admin.show');
-    }
 
 //    public function create()
 //    {
