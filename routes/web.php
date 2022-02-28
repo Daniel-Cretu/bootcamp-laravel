@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\LoginAdminController;
+use App\Http\Controllers\Api\ArticleApiController;
 use App\Http\Controllers\Api\ProductsApiController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\BlogController;
@@ -8,6 +11,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MenuController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 //use App\Http\Controllers\Api\ArticleApiController;
@@ -54,6 +58,7 @@ use Illuminate\Support\Facades\Route;
 //Route::post('/api/articles/{articleId}', [ArticleApiController::class, 'editArticle']);
 
 // New Routes
+Auth::routes();
 
 //Navigation
 Route::get('', [HomeController::class, 'show'])->name('home');
@@ -70,3 +75,10 @@ Route::get('/contact', [ContactController::class, 'show'])->name('contact');
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
 
 Route::get('/about', [AboutController::class, 'show'])->name('about');
+
+//Admin
+Route::group(['prefix' => '/admin', 'middleware' => ['auth']], function () {
+    Route::get('/article', [AdminController::class, 'articleCreate'])->name('admin.article.create');
+    Route::get('/article/{articleId}', [AdminController::class, 'articleEdit'])->name('admin.article.edit');
+    Route::get('/product', [AdminController::class, 'productCreate'])->name('admin.product.create');
+});

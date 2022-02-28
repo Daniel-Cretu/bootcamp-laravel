@@ -29,7 +29,7 @@ function getErrorToastTemplate(key, error) {
     return `
         <div id="successToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header border-0 rounded bg-success text-white">
-                <strong class="me-auto">New article was created with success</strong>
+                <strong class="me-auto">New article was created/updated with success</strong>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
         </div>
@@ -97,8 +97,6 @@ if (editArticleForm) {
                 cleanUpCreateForm();
             })
             .catch(error => {
-                // console.error(error.response.data.errors)
-
                 const errorToastsRegion = document.querySelector('[error-toasts-region]');
                 console.log(errorToastsRegion)
                 let toasts = '';
