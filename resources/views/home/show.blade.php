@@ -58,13 +58,6 @@
                         <div class="card-body">
                             <h5 class="card-title">{{$product['name']}}</h5>
                             <div class="d-flex justify-content-between">
-                                <button class="btn btn-primary" title="Add product" onclick="addProduct({{$product['id']}}, {{json_encode($product)}})">
-                                    <i class="bi bi-bag-plus"></i>
-                                    <span class="mx-1">{{$product['price']}}$</span>
-                                </button>
-                                <a href="#" class="btn btn-primary" title="Toppings">
-                                    <i class="bi bi-list-ul"></i>
-                                </a>
                             </div>
                         </div>
                     </div>

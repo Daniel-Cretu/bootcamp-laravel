@@ -27,9 +27,6 @@
                                             <i class="bi bi-bag-plus"></i>
                                             <span class="mx-1">{{$product['price']}}$</span>
                                         </button>
-                                        <a href="#" class="btn btn-primary" title="Toppings">
-                                            <i class="bi bi-list-ul"></i>
-                                        </a>
                                     </div>
                                 </div>
                             </div>
