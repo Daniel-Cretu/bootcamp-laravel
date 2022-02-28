@@ -38,7 +38,8 @@
 }
 
 .most-popular-article-img {
-    height: 100%;
+    height: 110px;
+    width: 100%;
     object-fit: cover;
 }
 
